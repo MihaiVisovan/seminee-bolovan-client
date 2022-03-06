@@ -16,6 +16,6 @@ export default defineConfig({
     mode: 'development',
   },
   build: {
-    outDir: path.resolve(__dirname, '../server/static'),
+    outDir: path.resolve(__dirname, '../seminee-bolovan-server/static'),
   },
 });
