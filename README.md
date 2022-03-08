@@ -23,8 +23,25 @@ npm run preview
 
 # project structure
 
-┣ src/**
-┃ ┣ assets - all assets files such as images, icons, etc.**
+<ul>
+
+<li> ┣ src/** </li>
+<li> ┃ ┣ assets - all assets files such as images, icons, etc.** </li>
+<li> ┣ src/** </li>
+<li> ┣ src/** </li>
+<li> ┣ src/** </li>
+<li> ┣ src/** </li>
+<li> ┣ src/** </li>
+<li> ┣ src/** </li>
+<li> ┣ src/** </li>
+<li> ┣ src/** </li>
+<li> ┣ src/** </li>
+<li> ┣ src/** </li>
+<li> ┣ src/** </li>
+<li> ┣ src/** </li>
+<li> ┣ src/** </li>
+<li> ┣ src/** </li>
+
 ┃ ┣ common - all components that are used at least twice**
 ┃ ┣ components - all components across the application**
 ┃ ┣ helpers - functions that are used at least twice**
