@@ -1,27 +1,33 @@
-<h3> requirements </h3>
-#
+## requirements
+
 - node
 - npm
 - nodemon (optional)
 
-# setup
+## setup
 
 - Clone repository
 - run 'npm install'
 
-# run project locally
+## run project locally
 
+```bash
 npm run dev
+```
 
-# build project
+## build project
 
+```bash
 npm run build
+```
 
-# preview of prod
+## preview of prod
 
+```bash
 npm run preview
+```
 
-# project structure
+## project structure
 
 src/common - all components that are used at least twice\
 src/components - all components across the applications\
