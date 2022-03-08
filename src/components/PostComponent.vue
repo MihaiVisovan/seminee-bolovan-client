@@ -18,7 +18,7 @@
 
 <script>
 import axios from 'axios';
-import postService from '../postService.js';
+import postService from '../helpers/postService.js';
 export default {
   name: 'PostComponent',
   data() {
