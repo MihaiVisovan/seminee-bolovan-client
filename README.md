@@ -1,4 +1,4 @@
-# requirements
+# <h3> requirements </h3>
 
 - node
 - npm
@@ -33,4 +33,4 @@ src/views - components that have a matching route (ex. /home route will match Ho
 src/App.vue - main vue component\
 src/main.js - main javascript file that uses src/App.vue\
 index.html - entry point of the project, where src/main.js is added\
-vite.config.js - all configurations needed for the project\
+vite.config.js - all configurations needed for the project
