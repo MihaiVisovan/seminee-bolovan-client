@@ -3,9 +3,9 @@
 - node
 - npm
 - nodemon (optional)
-- ````bash
-  .env``` file
-  ````
+- ```bash
+  .env file
+  ```
 
 ## setup
 
