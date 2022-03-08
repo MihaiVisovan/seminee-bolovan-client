@@ -2,8 +2,6 @@
 
 - node
 - npm
-- nodemon (optional)
-- `.env` file with the configuration
 
 ## Setup
 
