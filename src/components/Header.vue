@@ -1,18 +1,26 @@
 <template>
   <div :class="containerClass">
     <div :class="brandNameClass">Șeminee Bolovan</div>
-    <div :class="searchBoxClass">
+    <div :class="searchboxClass">
       <input type="text" placeholder="Caută șeminee" />
+      <MagnifyingGlassIcon :class="searchIconClass" />
     </div>
     <div :class="cartClass">
-      <font-awesome-icon :style="{ height: '30px' }" icon="shopping-cart" />
+      <CartIcon />
     </div>
   </div>
 </template>
 
 <script>
+import MagnifyingGlassIcon from '@/assets/icons/magnifying-glass.svg';
+import CartIcon from '@/assets/icons/cart.svg';
+
 export default {
   name: 'Header',
+  components: {
+    MagnifyingGlassIcon,
+    CartIcon,
+  },
   data() {
     return {
       containerClass: 'header',
@@ -22,11 +30,14 @@ export default {
     brandNameClass() {
       return `${this.containerClass}__name`;
     },
-    searchBoxClass() {
+    searchboxClass() {
       return `${this.containerClass}__search`;
     },
     cartClass() {
       return `${this.containerClass}__cart`;
+    },
+    searchIconClass() {
+      return `${this.searchboxClass}__icon`;
     },
   },
 };
@@ -35,7 +46,7 @@ export default {
 <style lang="scss" scoped>
 .header {
   width: 100%;
-  height: 80px;
+  height: 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -43,16 +54,25 @@ export default {
   box-sizing: border-box;
 
   &__name {
-    color: black;
     width: 250px;
     display: flex;
     justify-content: flex-start;
-    font-size: 30px;
+    font-size: 28px;
     font-weight: 500;
 
     &:hover {
       cursor: pointer;
       opacity: 0.6;
+    }
+  }
+
+  &__search {
+    position: relative;
+
+    &__icon {
+      position: absolute;
+      left: 15px;
+      top: 8px;
     }
   }
 
@@ -69,11 +89,12 @@ export default {
 }
 
 input[type='text'] {
-  height: 40px;
+  height: 35px;
   width: 500px;
   border-radius: 50px;
-  border: 3px solid black;
-  padding-left: 10px;
-  font-size: 20px;
+  border: 2px solid black;
+  padding-left: 40px;
+  font-size: 15px;
+  font-family: 'Merriweather', serif;
 }
 </style>

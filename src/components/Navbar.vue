@@ -1,8 +1,10 @@
 <template>
   <div :class="containerClass">
     <div v-for="(category, index) in categories" :key="index">
-      <div :class="categoryClass">
-        {{ category }}
+      <div :class="categoryContainerClass">
+        <div :class="categoryNameClass">
+          {{ category }}
+        </div>
       </div>
     </div>
   </div>
@@ -14,12 +16,15 @@ export default {
   data() {
     return {
       containerClass: 'navbar',
-      categories: ['Focare', 'Termocamine', 'Bioseminee', 'Burlane', 'Grile aer', 'Sobe'],
+      categories: ['Focare', 'Termocamine', 'Bioșeminee', 'Burlane', 'Grile aer', 'Sobe'],
     };
   },
   computed: {
-    categoryClass() {
+    categoryContainerClass() {
       return `${this.containerClass}__category`;
+    },
+    categoryNameClass() {
+      return `${this.categoryContainerClass}__name`;
     },
   },
 };
@@ -29,19 +34,27 @@ export default {
 .navbar {
   width: 100%;
   height: 40px;
-  background: linear-gradient(to right, #ff5050 0%, #ffcc00 100%);
+  background: linear-gradient(to right, #f42b03 0%, #ffbe0b 100%);
   display: flex;
   justify-content: center;
   align-items: center;
-  font-weight: 500;
-  font-size: 18px;
+  font-size: 16px;
 
   &__category {
-    margin: 0 30px;
+    margin-right: 50px;
+    height: 100%;
+    cursor: pointer;
 
-    &:hover {
-      cursor: pointer;
-      opacity: 0.5;
+    &__name {
+      color: white;
+      border: 1px solid transparent;
+      border-radius: 50px;
+      padding: 4px 10px;
+      box-sizing: border-box;
+
+      &:hover {
+        border-color: white;
+      }
     }
   }
 }

@@ -13,8 +13,8 @@ import Navbar from '@/components/Navbar.vue';
 import Footer from '@/components/Footer.vue';
 
 export default {
-  components: { Header, Navbar, Footer },
   name: 'App',
+  components: { Header, Navbar, Footer },
   data() {
     return {
       containerClass: 'app',
@@ -24,21 +24,16 @@ export default {
 </script>
 
 <style>
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300ita‌​lic,400italic,500,500italic,700,700italic,900italic,900);
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', sans-serif;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0;
-  padding: 0;
+  font-family: 'Merriweather', serif;
 }
 
 .app {
