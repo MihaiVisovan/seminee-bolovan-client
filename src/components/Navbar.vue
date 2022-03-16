@@ -16,7 +16,16 @@ export default {
   data() {
     return {
       containerClass: 'navbar',
-      categories: ['Focare', 'Termocamine', 'Bioșeminee', 'Burlane', 'Grile aer', 'Sobe'],
+      categories: [
+        'Focare',
+        'Termocamine',
+        'Burlane',
+        'Bioșeminee',
+        'Elemente distributie',
+        'Grile',
+        'Sobe',
+        'Acumulatoare',
+      ],
     };
   },
   computed: {
@@ -39,6 +48,7 @@ export default {
   justify-content: center;
   align-items: center;
   font-size: 16px;
+  font-family: 'Merriweather', serif;
 
   &__category {
     margin-right: 50px;

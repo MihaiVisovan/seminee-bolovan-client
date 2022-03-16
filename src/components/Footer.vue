@@ -3,7 +3,7 @@
     <div :class="infoClass" v-for="(info, index) in infoList" :key="index">
       <div :class="titleClass">{{ info.title }}</div>
       <div :class="detailsClass" v-for="(detail, index) in info.details" :key="index">
-        <b> {{ detail.key }} </b>
+        <span :class="detailsTitleClass"> {{ detail.key }} </span>
         <span> {{ detail.value }} </span>
       </div>
     </div>
@@ -18,7 +18,7 @@ export default {
       containerClass: 'footer',
       infoList: [
         {
-          title: 'Contact',
+          title: 'CONTACT',
           details: [
             {
               key: 'Adresa: ',
@@ -39,7 +39,7 @@ export default {
           ],
         },
         {
-          title: 'Suport clienți',
+          title: 'SUPORT CLIENȚI',
           details: [
             {
               key: 'Adresa: ',
@@ -60,7 +60,7 @@ export default {
           ],
         },
         {
-          title: 'Comenzi și livrare',
+          title: 'COMENZI ȘI LIVRARE',
           details: [
             {
               key: 'Adresa: ',
@@ -93,6 +93,9 @@ export default {
     detailsClass() {
       return `${this.infoClass}__details`;
     },
+    detailsTitleClass() {
+      return `${this.detailsClass}__title`;
+    },
   },
 };
 </script>
@@ -102,28 +105,32 @@ export default {
   width: 100%;
   height: 200px;
   padding: 25px;
-  position: absolute;
-  bottom: 0;
   display: flex;
   justify-content: space-between;
   background: black;
+  font-family: 'Plak', serif;
 
   &__info {
     display: flex;
     flex-direction: column;
     padding-right: 15px;
+    letter-spacing: 1.5px;
 
     &__title {
-      font-weight: bold;
-      font-size: 18px;
+      font-weight: 600;
+      font-size: 25px;
       color: white;
       margin-bottom: 10px;
     }
 
     &__details {
-      font-size: 14px;
+      font-size: 20px;
       color: white;
       line-height: 20px;
+
+      &__title {
+        font-weight: 600;
+      }
     }
   }
 }

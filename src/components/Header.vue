@@ -1,19 +1,19 @@
 <template>
   <div :class="containerClass">
-    <div :class="brandNameClass">Șeminee Bolovan</div>
+    <div @click="goHome" :class="brandNameClass">ȘEMINEE BOLOVAN</div>
     <div :class="searchboxClass">
       <input type="text" placeholder="Caută șeminee" />
       <MagnifyingGlassIcon :class="searchIconClass" />
     </div>
-    <div :class="cartClass">
+    <div @click="addCartAnimation" :class="cartClass" id="cart">
       <CartIcon />
     </div>
   </div>
 </template>
 
 <script>
-import MagnifyingGlassIcon from '@/assets/icons/magnifying-glass.svg';
-import CartIcon from '@/assets/icons/cart.svg';
+import MagnifyingGlassIcon from '@/assets/icons/MagnifyingGlassIcon.vue';
+import CartIcon from '@/assets/icons/CartIcon.vue';
 
 export default {
   name: 'Header',
@@ -33,11 +33,36 @@ export default {
     searchboxClass() {
       return `${this.containerClass}__search`;
     },
+    searchIconClass() {
+      return `${this.searchboxClass}__icon`;
+    },
     cartClass() {
       return `${this.containerClass}__cart`;
     },
-    searchIconClass() {
-      return `${this.searchboxClass}__icon`;
+    cartAnimationClass() {
+      return `${this.cartClass}__animation`;
+    },
+    cartAnimationReversedClass() {
+      return `${this.cartAnimationClass}__reversed`;
+    },
+  },
+  methods: {
+    addCartAnimation() {
+      const cart = document.getElementById('cart');
+      cart.classList.add(this.cartAnimationClass);
+
+      setTimeout(() => {
+        cart.classList.add(this.cartAnimationReversedClass);
+        this.$router.push({ name: 'Cart' });
+      }, 500);
+
+      setTimeout(() => {
+        cart.classList.remove(this.cartAnimationClass);
+        cart.classList.remove(this.cartAnimationReversedClass);
+      }, 1000);
+    },
+    goHome() {
+      this.$router.push({ name: 'Categories' });
     },
   },
 };
@@ -57,12 +82,15 @@ export default {
     width: 250px;
     display: flex;
     justify-content: flex-start;
-    font-size: 28px;
-    font-weight: 500;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'Plak', serif;
+    letter-spacing: 0.5px;
+    word-spacing: 3px;
 
     &:hover {
       cursor: pointer;
-      opacity: 0.6;
+      opacity: 0.7;
     }
   }
 
@@ -83,8 +111,38 @@ export default {
     cursor: pointer;
 
     &:hover {
-      opacity: 0.5;
+      opacity: 0.7;
     }
+
+    &__animation {
+      animation: slide-out-right 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) forwards;
+
+      &__reversed {
+        animation: slide-out-left 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) forwards;
+      }
+    }
+  }
+}
+
+@keyframes slide-out-right {
+  0% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(200px);
+    opacity: 0;
+  }
+}
+
+@keyframes slide-out-left {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0px);
+    opacity: 1;
   }
 }
 
