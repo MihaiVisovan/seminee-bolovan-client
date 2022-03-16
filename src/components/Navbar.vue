@@ -21,7 +21,6 @@ export default {
         'Termocamine',
         'Burlane',
         'Bioșeminee',
-        'Elemente distributie',
         'Grile',
         'Sobe',
         'Acumulatoare',
@@ -43,15 +42,19 @@ export default {
 .navbar {
   width: 100%;
   height: 40px;
-  background: linear-gradient(to right, #f42b03 0%, #ffbe0b 100%);
+  background: linear-gradient(to left, #e8c547 20%, #c20114 100%);
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 16px;
   font-family: 'Merriweather', serif;
 
+  @media only screen and (max-width: 992px) {
+    display: none;
+  }
+
   &__category {
-    margin-right: 50px;
+    margin-right: 20px;
     height: 100%;
     cursor: pointer;
 

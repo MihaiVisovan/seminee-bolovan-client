@@ -103,18 +103,24 @@ export default {
 <style lang="scss" scoped>
 .footer {
   width: 100%;
-  height: 200px;
+  height: 100%;
   padding: 25px;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   background: black;
   font-family: 'Plak', serif;
 
   &__info {
     display: flex;
     flex-direction: column;
-    padding-right: 15px;
     letter-spacing: 1.5px;
+    padding-right: 30px;
+    margin-bottom: 50px;
+
+    @media only screen and (min-width: $desktop) {
+      margin-bottom: 0px;
+    }
 
     &__title {
       font-weight: 600;
@@ -124,9 +130,11 @@ export default {
     }
 
     &__details {
-      font-size: 20px;
+      font-family: 'Merriweather', serif;
+      font-size: 14px;
       color: white;
       line-height: 20px;
+      letter-spacing: 0px;
 
       &__title {
         font-weight: 600;

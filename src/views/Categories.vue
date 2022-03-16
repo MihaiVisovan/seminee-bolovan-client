@@ -93,7 +93,6 @@ export default {
 <style lang="scss" scoped>
 .categories {
   width: 100%;
-  margin: 50px 0;
 
   &__grid {
     max-width: 1200px;

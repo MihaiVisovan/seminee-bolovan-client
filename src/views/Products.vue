@@ -15,7 +15,7 @@
             <div :class="titleClass">{{ product.details.title }}</div>
             <div :class="priceClass">
               <span> {{ product.details.price }} </span>
-              <span> {{ product.details.currency }} </span>
+              <span style="padding-left: 3px"> {{ product.details.currency }} </span>
             </div>
           </div>
         </template>
@@ -38,61 +38,61 @@ export default {
         {
           image:
             'http://semineebolovan.ro/wp-content/uploads/2017/09/AL19R_H_anim_0-300x320_center_center.png',
-          details: { title: 'Albero AL19 R.H-D', price: 10532, currency: 'lei' },
+          details: { title: 'Albero AL19 R.H-D', price: 10532, currency: 'RON' },
         },
         {
           image: 'https://semineebolovan.ro/wp-content/uploads/2018/01/AL9R_G_H_anim_0.png',
-          details: { title: 'Albero AL19 R.H-D', price: 10532, currency: 'lei' },
+          details: { title: 'Albero AL19 R.H-D', price: 10532, currency: 'RON' },
         },
         {
           image: 'https://semineebolovan.ro/wp-content/uploads/2018/01/burlane2.png',
-          details: { title: 'Albero AL19 R.H-D', price: 10532, currency: 'lei' },
+          details: { title: 'Albero AL19 R.H-D', price: 10532, currency: 'RON' },
         },
         {
           image:
             'http://semineebolovan.ro/wp-content/uploads/2017/09/AL16L_G_H_anim_0-300x320_center_center.png"',
-          details: { title: 'Albero AL19 R.H-D', price: 10532, currency: 'lei' },
+          details: { title: 'Albero AL19 R.H-D', price: 10532, currency: 'RON' },
         },
         {
           image: 'https://semineebolovan.ro/wp-content/uploads/2018/01/Distributie-aer-2.jpg',
-          details: { title: 'Albero AL12 R.H-D', price: 10532, currency: 'lei' },
+          details: { title: 'Albero AL12 R.H-D', price: 10532, currency: 'RON' },
         },
         {
           image:
             'http://semineebolovan.ro/wp-content/uploads/2017/08/AL9S_H_anim_0-300x320_center_center.png',
-          details: { title: 'Albero AL15 R.H-D', price: 10532, currency: 'lei' },
+          details: { title: 'Albero AL15 R.H-D', price: 10532, currency: 'RON' },
         },
         {
           image:
             'http://semineebolovan.ro/wp-content/uploads/2017/09/14R_G_H_anim_0-300x320_center_center.png',
-          details: { title: 'Albero AL19 L.H-D', price: 7300, currency: 'lei' },
+          details: { title: 'Albero AL19 L.H-D', price: 7300, currency: 'RON' },
         },
         {
           image:
             'http://semineebolovan.ro/wp-content/uploads/2017/09/AL19L_H_anim_0-300x320_center_center.png',
-          details: { title: 'Albero AL13 R.H-D', price: 7300, currency: 'lei' },
+          details: { title: 'Albero AL13 R.H-D', price: 7300, currency: 'RON' },
         },
         {
           image:
             'http://semineebolovan.ro/wp-content/uploads/2017/09/AL19R_H_anim_0-300x320_center_center.png',
-          details: { title: 'Albero AL19 R.H-D', price: 7300, currency: 'lei' },
+          details: { title: 'Albero AL19 R.H-D', price: 7300, currency: 'RON' },
         },
         {
           image: 'https://semineebolovan.ro/wp-content/uploads/2018/01/AL9R_G_H_anim_0.png',
-          details: { title: 'Albero AL19 R.H-D', price: 10532, currency: 'lei' },
+          details: { title: 'Albero AL19 R.H-D', price: 10532, currency: 'RON' },
         },
         {
           image: 'https://semineebolovan.ro/wp-content/uploads/2018/01/burlane2.png',
-          details: { title: 'Albero AL25 R.G-D', price: 1032, currency: 'lei' },
+          details: { title: 'Albero AL25 R.G-D', price: 1032, currency: 'RON' },
         },
         {
           image:
             'http://semineebolovan.ro/wp-content/uploads/2017/09/AL16L_G_H_anim_0-300x320_center_center.png',
-          details: { title: 'Marino AL19 R.H-D', price: 10532, currency: 'lei' },
+          details: { title: 'Marino AL19 R.H-D', price: 10532, currency: 'RON' },
         },
         {
           image: 'https://semineebolovan.ro/wp-content/uploads/2018/01/Distributie-aer-2.jpg',
-          details: { title: 'Toro AL19 R.H-D', price: 10532, currency: 'lei' },
+          details: { title: 'Toro AL19 R.H-D', price: 10532, currency: 'RON' },
         },
         {
           image:
@@ -100,7 +100,7 @@ export default {
           details: {
             title: 'Tero AL19 R.H-',
             price: 10.532,
-            currency: 'lei',
+            currency: 'RON',
           },
         },
         {
@@ -109,13 +109,13 @@ export default {
           details: {
             title: 'Albero AL19 R.H-',
             price: 11500,
-            currency: 'lei',
+            currency: 'RON',
           },
         },
         {
           image:
             'http://semineebolovan.ro/wp-content/uploads/2017/09/AL19L_H_anim_0-300x320_center_center.png',
-          details: { title: 'Albero AL125 R.H-D', price: 12532, currency: 'lei' },
+          details: { title: 'Albero AL125 R.H-D', price: 12532, currency: 'RON' },
         },
       ],
     };
@@ -152,7 +152,6 @@ export default {
 <style lang="scss" scoped>
 .products {
   width: 100%;
-  margin: 50px 0;
 
   &__grid {
     max-width: 1200px;
@@ -178,13 +177,14 @@ export default {
       letter-spacing: 0.5px;
 
       &__title {
-        font-weight: 600;
+        font-weight: 700;
         font-size: 22px;
       }
 
       &__price {
-        font-weight: 800;
+        font-weight: 600;
         font-size: 18px;
+        color: $color-dark-grey;
       }
     }
   }

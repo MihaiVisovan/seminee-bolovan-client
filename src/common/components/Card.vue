@@ -34,10 +34,18 @@ export default {
   display: flex;
   flex-direction: column;
   box-shadow: 0px 2px 4px 2px #dcdcdc;
-  width: calc(25% - 30px);
-  margin: 15px 15px;
+  margin: 15px;
   padding: 15px;
+  width: calc(90% - 30px);
   cursor: pointer;
+
+  @media only screen and (min-width: $mobile) {
+    width: calc(50% - 30px);
+  }
+
+  @media only screen and (min-width: $laptop) {
+    width: calc(25% - 30px);
+  }
 
   &:hover {
     box-shadow: 0px 1px 4px 4px #dcdcdc;

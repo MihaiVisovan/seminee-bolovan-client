@@ -22,4 +22,11 @@ export default defineConfig({
   build: {
     outDir: path.resolve(__dirname, '../seminee-bolovan-server/static'),
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "@/assets/style/global.scss";`,
+      },
+    },
+  },
 });
