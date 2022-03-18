@@ -36,7 +36,7 @@ export default {
   position: absolute;
   z-index: 1;
   left: 0;
-  top: 60px;
+  top: 50px;
   height: 100%;
   width: 100%;
   background-color: white;
@@ -47,18 +47,15 @@ export default {
   }
 
   &__category {
-    height: 50px;
+    height: 40px;
     border-top: 1px solid $color-light-grey;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 16px;
+    font-size: $font-small;
     cursor: pointer;
   }
 
-  &__category:hover {
-    color: white;
-  }
   &__category:last-child {
     border-bottom: 1px solid $color-light-grey;
   }

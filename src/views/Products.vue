@@ -1,5 +1,6 @@
 <template>
   <div :class="containerClass">
+    <div :class="filterClass">Filters</div>
     <div :class="gridClass">
       <Card
         @click="goToProduct(product.details.title)"
@@ -13,9 +14,9 @@
         <template v-slot:card-details>
           <div :class="detailsClass">
             <div :class="titleClass">{{ product.details.title }}</div>
-            <div :class="priceClass">
+            <div :class="priceWrapperClass">
               <span> {{ product.details.price }} </span>
-              <span style="padding-left: 3px"> {{ product.details.currency }} </span>
+              <span :class="priceCurrencyClass"> {{ product.details.currency }} </span>
             </div>
           </div>
         </template>
@@ -121,6 +122,9 @@ export default {
     };
   },
   computed: {
+    filterClass() {
+      return `${this.containerClass}__filter_panel`;
+    },
     gridClass() {
       return `${this.containerClass}__grid`;
     },
@@ -136,8 +140,11 @@ export default {
     titleClass() {
       return `${this.detailsClass}__title`;
     },
-    priceClass() {
+    priceWrapperClass() {
       return `${this.detailsClass}__price`;
+    },
+    priceCurrencyClass() {
+      return `${this.priceWrapperClass}__currency`;
     },
   },
   methods: {
@@ -151,14 +158,43 @@ export default {
 
 <style lang="scss" scoped>
 .products {
+  height: 100%;
   width: 100%;
+  display: flex;
+  justify-content: flex-end;
+
+  padding: 25px 0;
+
+  @media only screen and (min-width: $mobile) {
+    padding: 25px;
+  }
+
+  &__filter_panel {
+    width: 300px;
+    margin: 15px 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-size: $font-xxxl;
+    font-family: 'Merriweather', serif;
+    box-shadow: 3px 0px 4px 3px $color-light-grey;
+
+    @media only screen and (min-width: $laptop) {
+      display: flex;
+    }
+  }
 
   &__grid {
-    max-width: 1200px;
+    padding: 0 15px;
+    flex: 1;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     margin: auto;
+
+    @media only screen and (min-width: $mobile) {
+      justify-content: flex-start;
+    }
 
     &__image_wrapper {
       height: 200px;
@@ -167,24 +203,28 @@ export default {
     &__image {
       height: 100%;
       width: 100%;
+      object-fit: contain;
     }
 
     &__details {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      font-family: 'Plak', serif;
       letter-spacing: 0.5px;
 
       &__title {
         font-weight: 700;
-        font-size: 22px;
+        font-size: $font-large;
       }
 
       &__price {
         font-weight: 600;
-        font-size: 18px;
+        font-size: $font-medium;
         color: $color-dark-grey;
+
+        &__currency {
+          padding-left: 3px;
+        }
       }
     }
   }

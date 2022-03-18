@@ -109,7 +109,6 @@ export default {
   justify-content: space-between;
   flex-wrap: wrap;
   background: black;
-  font-family: 'Plak', serif;
 
   &__info {
     display: flex;
@@ -124,14 +123,14 @@ export default {
 
     &__title {
       font-weight: 600;
-      font-size: 25px;
+      font-size: $font-xl;
       color: white;
       margin-bottom: 10px;
     }
 
     &__details {
       font-family: 'Merriweather', serif;
-      font-size: 14px;
+      font-size: $font-small;
       color: white;
       line-height: 20px;
       letter-spacing: 0px;

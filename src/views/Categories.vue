@@ -93,6 +93,11 @@ export default {
 <style lang="scss" scoped>
 .categories {
   width: 100%;
+  padding: 25px 0;
+
+  @media only screen and (min-width: $mobile) {
+    padding: 25px;
+  }
 
   &__grid {
     max-width: 1200px;
@@ -101,6 +106,10 @@ export default {
     flex-wrap: wrap;
     margin: auto;
 
+    @media only screen and (min-width: $mobile) {
+      justify-content: flex-start;
+    }
+
     &__image_wrapper {
       height: 200px;
     }
@@ -108,12 +117,13 @@ export default {
     &__image {
       height: 100%;
       width: 100%;
+      object-fit: contain;
     }
 
     &__details {
       font-family: 'Merriweather', serif;
       font-weight: 600;
-      font-size: 18px;
+      font-size: $font-medium;
     }
   }
 }

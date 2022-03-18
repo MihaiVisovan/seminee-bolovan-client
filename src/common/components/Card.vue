@@ -1,9 +1,9 @@
 <template>
   <div :class="containerClass">
-    <div :class="imageWrapperClass">
+    <div :class="imageClass">
       <slot name="card-image"></slot>
     </div>
-    <div :class="detailsWrapperClass">
+    <div :class="detailsClass">
       <slot name="card-details"></slot>
     </div>
   </div>
@@ -18,11 +18,11 @@ export default {
     };
   },
   computed: {
-    imageWrapperClass() {
-      return `${this.containerClass}__image_wrapper`;
+    imageClass() {
+      return `${this.containerClass}__image`;
     },
-    detailsWrapperClass() {
-      return `${this.containerClass}__details_wrapper`;
+    detailsClass() {
+      return `${this.containerClass}__details`;
     },
   },
 };
@@ -39,25 +39,30 @@ export default {
   width: calc(90% - 30px);
   cursor: pointer;
 
+  &:hover {
+    box-shadow: 0px 1px 4px 4px #dcdcdc;
+  }
+
   @media only screen and (min-width: $mobile) {
     width: calc(50% - 30px);
   }
 
   @media only screen and (min-width: $laptop) {
+    width: calc(33.33% - 30px);
+  }
+
+  @media only screen and (min-width: $desktop) {
     width: calc(25% - 30px);
   }
 
-  &:hover {
-    box-shadow: 0px 1px 4px 4px #dcdcdc;
-  }
-
-  &__image_wrapper {
+  &__image {
     display: flex;
     justify-content: center;
     align-items: center;
+    object-fit: contain;
   }
 
-  &__details_wrapper {
+  &__details {
     margin-top: 20px;
   }
 }

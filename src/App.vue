@@ -1,25 +1,25 @@
 <template>
   <div :class="containerClass">
     <Header />
-    <Menu v-if="showMenu" />
+    <DropdownMenu v-if="showMenu" />
     <Navbar />
     <Fireplace />
-    <router-view :class="routerViewClass"></router-view>
+    <router-view :class="contentClass"></router-view>
     <Footer />
   </div>
 </template>
 
 <script>
-import Header from '@/components/Header.vue';
-import Navbar from '@/components/Navbar.vue';
+import Header from '@/components/header/Header.vue';
+import DropdownMenu from '@/components/header/components/DropdownMenu.vue';
+import Navbar from '@/components/navbar/Navbar.vue';
 import Fireplace from '@/components/Fireplace.vue';
-import Footer from '@/components/Footer.vue';
-import Menu from '@/components/Menu.vue';
+import Footer from '@/components/footer/Footer.vue';
 import { mapState } from 'vuex';
 
 export default {
   name: 'App',
-  components: { Header, Navbar, Footer, Fireplace, Menu },
+  components: { Header, Navbar, Footer, Fireplace, DropdownMenu },
   data() {
     return {
       containerClass: 'app',
@@ -27,8 +27,8 @@ export default {
   },
   computed: {
     ...mapState(['showMenu']),
-    routerViewClass() {
-      return `${this.containerClass}__router_view`;
+    contentClass() {
+      return `${this.containerClass}__content`;
     },
   },
 };
@@ -36,17 +36,8 @@ export default {
 
 <style lang="scss">
 .app {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-
-  &__router_view {
+  &__content {
     min-height: 500px;
-    padding: 25px 0;
-
-    @media only screen and(min-width: $mobile) {
-      padding: 25px 25px;
-    }
   }
 }
 </style>
