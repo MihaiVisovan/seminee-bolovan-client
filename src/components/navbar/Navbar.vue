@@ -45,11 +45,15 @@ export default {
 <style lang="scss" scoped>
 .navbar {
   width: 100%;
-  height: 40px;
+  height: 50px;
   background: linear-gradient(to left, #e8c547 20%, #c20114 100%);
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media only screen and (min-width: $laptop) {
+    height: 40px;
+  }
 
   &__categories {
     width: 100%;

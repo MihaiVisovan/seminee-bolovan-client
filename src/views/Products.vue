@@ -163,10 +163,10 @@ export default {
   display: flex;
   justify-content: flex-end;
 
-  padding: 25px 0;
+  padding: 20px 0;
 
   @media only screen and (min-width: $mobile) {
-    padding: 25px;
+    padding: 20px;
   }
 
   &__filter_panel {
@@ -185,7 +185,6 @@ export default {
   }
 
   &__grid {
-    padding: 0 15px;
     flex: 1;
     display: flex;
     justify-content: center;

@@ -93,10 +93,10 @@ export default {
 <style lang="scss" scoped>
 .categories {
   width: 100%;
-  padding: 25px 0;
+  padding: 20px 0;
 
   @media only screen and (min-width: $mobile) {
-    padding: 25px;
+    padding: 20px;
   }
 
   &__grid {

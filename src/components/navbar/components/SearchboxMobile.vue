@@ -28,19 +28,19 @@ export default {
 
 <style lang="scss" scoped>
 .searchbox_mobile {
-  height: 28px;
+  height: 35px;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 25px;
+  padding: 0 20px;
   position: relative;
 
   &__icon {
-    width: 16px;
+    width: 18px;
     position: absolute;
-    left: 37px;
-    top: 5px;
+    left: 35px;
+    top: 7px;
     fill: white;
   }
 
@@ -57,7 +57,7 @@ input[type='text'] {
   border: 2px solid white;
   background: transparent;
   color: white;
-  padding-left: 35px;
+  padding-left: 40px;
   font-size: $font-small;
   font-family: 'Merriweather', serif;
 }
