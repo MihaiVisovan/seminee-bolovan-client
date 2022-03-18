@@ -28,6 +28,7 @@ npm run preview
 
 ## Project structure
 
+- src/assets - all images, fonts, videos, icons are included in here
 - src/common - all components that are used at least twice
 - src/components - all components across the applications
 - src/helpers - functions that are used at least twice
