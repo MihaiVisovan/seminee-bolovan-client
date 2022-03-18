@@ -81,14 +81,23 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: $font-xxxl;
+    font-size: $font-large;
     font-weight: bold;
     letter-spacing: 0.5px;
     word-spacing: 3px;
     cursor: pointer;
 
+    @media only screen and (min-width: $s-mobile) {
+      font-size: $font-xxl;
+    }
+
+    @media only screen and (min-width: $mobile) {
+      font-size: $font-xxxl;
+    }
+
     @media only screen and (min-width: $tablet) {
       justify-content: flex-start;
+      font-size: $font-xxxxl;
       width: 250px;
       flex: none;
     }
@@ -112,9 +121,12 @@ export default {
     justify-content: flex-end;
     align-items: center;
     cursor: pointer;
+    padding-top: 3px;
 
     @media only screen and (min-width: $laptop) {
       width: 250px;
+      padding-top: 0;
+
       svg {
         width: 50px;
         height: 50px;
