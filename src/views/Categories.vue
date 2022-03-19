@@ -2,7 +2,7 @@
   <div :class="containerClass">
     <div :class="gridClass">
       <Card
-        @click="goToProductsPage(category.details)"
+        @click="goToProductsPage(category)"
         v-for="(category, index) in categories"
         :key="index"
       >
@@ -13,7 +13,7 @@
         </template>
         <template v-slot:card-details>
           <div :class="detailsClass">
-            {{ category.details }}
+            {{ category.longTitle }}
           </div>
         </template>
       </Card>
@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import Card from '@/common/components/Card.vue';
 export default {
   name: 'Categories',
@@ -31,43 +32,10 @@ export default {
   data() {
     return {
       containerClass: 'categories',
-      categories: [
-        {
-          image: 'https://semineebolovan.ro/wp-content/uploads/2018/01/AL9R_H_anim_0.png',
-          details: 'Focare semineu',
-        },
-        {
-          image: 'https://semineebolovan.ro/wp-content/uploads/2018/01/AL9R_G_H_anim_0.png',
-          details: 'Termocamine',
-        },
-        {
-          image: 'https://semineebolovan.ro/wp-content/uploads/2018/01/burlane2.png',
-          details: 'Burlane din otel',
-        },
-        {
-          image: 'https://semineebolovan.ro/wp-content/uploads/2018/01/grill_gall01_alpha.png',
-          details: 'Bioseminee',
-        },
-        {
-          image: 'https://semineebolovan.ro/wp-content/uploads/2018/01/Distributie-aer-2.jpg',
-          details: 'Elemente distributie aer',
-        },
-        {
-          image: 'https://semineebolovan.ro/wp-content/uploads/2018/01/SL_56x56x9_perspective_.png',
-          details: 'Grile aer',
-        },
-        {
-          image: 'https://semineebolovan.ro/wp-content/uploads/2018/01/lupo_m_7-copy.png',
-          details: 'Sobe pe lemne',
-        },
-        {
-          image: 'https://semineebolovan.ro/wp-content/uploads/2018/01/WCPW02_1.png',
-          details: 'Acumulatoare de caldura',
-        },
-      ],
     };
   },
   computed: {
+    ...mapState(['categories']),
     gridClass() {
       return `${this.containerClass}__grid`;
     },
@@ -82,9 +50,14 @@ export default {
     },
   },
   methods: {
-    goToProductsPage(id) {
-      const dashedId = id.toLowerCase().replaceAll(' ', '-');
-      this.$router.push({ name: 'Products', params: { categoryId: dashedId } });
+    goToProductsPage(category) {
+      // this will also be used as the category ID in the database, so it has to be unique
+      const categoryId = category.shortTitle.toLowerCase().replaceAll(' ', '-');
+
+      this.$router.push({
+        name: 'Products',
+        params: { categoryId: categoryId },
+      });
     },
   },
 };

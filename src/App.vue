@@ -36,6 +36,8 @@ export default {
 
 <style lang="scss">
 .app {
+  height: 100%;
+  position: relative;
   &__content {
     min-height: 500px;
   }

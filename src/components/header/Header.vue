@@ -70,10 +70,14 @@ export default {
 <style lang="scss" scoped>
 .header {
   width: 100%;
-  height: 60px;
+  height: 50px;
   display: flex;
   justify-content: space-between;
   padding: 10px 20px;
+
+  @media only screen and (min-width: $laptop) {
+    height: 60px;
+  }
 
   &__name {
     flex: 1;
@@ -89,7 +93,7 @@ export default {
     cursor: pointer;
 
     @media only screen and (min-width: $s-mobile) {
-      font-size: $font-xxl;
+      font-size: $font-xl;
     }
 
     @media only screen and (min-width: $mobile) {

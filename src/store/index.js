@@ -1,9 +1,12 @@
 import { createStore } from 'vuex';
+import categories from '@/assets/data/categories.json';
+import products from '@/assets/data/products.json';
 
 export default createStore({
   state: {
     showMenu: false,
-    categories: ['Focare', 'Termocamine', 'Burlane', 'Bioșeminee', 'Grile', 'Sobe', 'Acumulatoare'],
+    categories,
+    products,
   },
   mutations: {
     setShowMenu(state, showMenu) {

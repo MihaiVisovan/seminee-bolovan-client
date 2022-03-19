@@ -15,6 +15,11 @@ export default {
       containerClass: 'dropdown',
     };
   },
+  watch: {
+    showMenu(newValue, oldValue) {
+      this.triggerIconAnimation(newValue);
+    },
+  },
   computed: {
     ...mapState(['showMenu']),
     menuAnimationClass() {
@@ -41,11 +46,11 @@ export default {
   },
   methods: {
     ...mapMutations(['setShowMenu']),
-    toggleMenu() {
+    triggerIconAnimation(newValue) {
       const menuFirstLine = document.getElementById('menu-first-line');
       const menuSecondLine = document.getElementById('menu-second-line');
 
-      if (!this.showMenu) {
+      if (newValue) {
         menuFirstLine.classList.add(this.firstLineRotateClass);
         menuSecondLine.classList.add(this.secondLineRotateClass);
 
@@ -58,6 +63,9 @@ export default {
         menuFirstLine.classList.remove(this.firstLineRotateClass);
         menuSecondLine.classList.remove(this.secondLineRotateClass);
       }
+    },
+    toggleMenu() {
+      this.triggerIconAnimation();
 
       this.setShowMenu(!this.showMenu);
     },

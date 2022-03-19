@@ -1,31 +1,48 @@
 <template>
-  <div :class="containerClass">
-    <div v-for="(category, index) in categories" :key="index" :class="categoryClass">
-      {{ category }}
+  <div :class="containerClass" v-if="showMenu">
+    <div :class="categoriesClass">
+      <div
+        @click="goToProductsPage(category)"
+        v-for="(category, index) in categories"
+        :key="index"
+        :class="categoryClass"
+      >
+        {{ category.longTitle }}
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex';
 export default {
   name: 'Menu',
   data() {
     return {
       containerClass: 'menu',
-      categories: [
-        'Focare',
-        'Termocamine',
-        'Burlane',
-        'Bioșeminee',
-        'Grile',
-        'Sobe',
-        'Acumulatoare',
-      ],
+      showMenu: true,
     };
   },
   computed: {
+    ...mapState(['categories', 'showMenu']),
+    categoriesClass() {
+      return `${this.containerClass}__categories`;
+    },
     categoryClass() {
-      return `${this.containerClass}__category`;
+      return `${this.categoriesClass}__category`;
+    },
+  },
+  methods: {
+    ...mapMutations(['setShowMenu']),
+    goToProductsPage(category) {
+      // this will also be used as the category ID in the database, so it has to be unique
+      const categoryId = category.shortTitle.toLowerCase().replaceAll(' ', '-');
+
+      this.$router.push({
+        name: 'Products',
+        params: { categoryId: categoryId },
+      });
+      this.setShowMenu(false);
     },
   },
 };
@@ -36,28 +53,33 @@ export default {
   position: absolute;
   z-index: 1;
   left: 0;
-  top: 60px;
+  top: 40px;
   height: 100%;
   width: 100%;
   background-color: white;
   font-family: 'Merriweather', serif;
+  padding: 0px 25px;
 
   @media only screen and (min-width: $laptop) {
     display: none;
   }
 
-  &__category {
-    height: 40px;
-    border-top: 1px solid $color-light-grey;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: $font-small;
-    cursor: pointer;
-  }
-
-  &__category:last-child {
-    border-bottom: 1px solid $color-light-grey;
+  &__categories {
+    &__category {
+      height: 40px;
+      padding-bottom: 3px;
+      border-bottom: 1px solid transparent;
+      border-image: linear-gradient(to left, #e8c547 30%, #c20114 100%);
+      border-image-slice: 1;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-end;
+      font-weight: bold;
+      font-size: $font-small;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      cursor: pointer;
+    }
   }
 }
 </style>
