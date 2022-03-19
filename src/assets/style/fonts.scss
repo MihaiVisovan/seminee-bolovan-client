@@ -2,25 +2,30 @@
 
 @font-face {
   font-family: 'Plak';
-  src: url('@/assets/fonts/Neue Plak Condensed Black.ttf') format('truetype');
+  src: url('@/assets/fonts/Neue Plak Condensed Black.ttf') format('truetype'),
+    url('@/assets/fonts/Neue Plak Condensed Black.woff') format('woff');
   font-weight: 800;
 }
 
 @font-face {
   font-family: 'Plak';
-  src: url('@/assets/fonts/Neue Plak Condensed Bold.ttf') format('truetype');
+  src: url('@/assets/fonts/Neue Plak Condendsed Bold.ttf') format('truetype'),
+    url('@/assets/fonts/Neue Plak Condensed Bold.woff') format('woff');
+
   font-weight: bold;
 }
 
 @font-face {
   font-family: 'Plak';
-  src: url('@/assets/fonts/Neue Plak Condensed SemiBold.ttf') format('truetype');
+  src: url('@/assets/fonts/Neue Plak Condensed SemiBold.woff') format('woff'),
+    url('@/assets/fonts/Neue Plak Condensed SemiBold.woff') format('woff');
   font-weight: 600;
 }
 
 @font-face {
   font-family: 'Plak';
-  src: url('@/assets/fonts/Neue Plak Condensed Regular.ttf') format('truetype');
+  src: url('@/assets/fonts/Neue Plak Condensed Regular.woff') format('woff'),
+    url('@/assets/fonts/Neue Plak Condensed Regular.woff') format('woff');
   font-weight: normal;
 }
 
