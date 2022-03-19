@@ -71,6 +71,7 @@ export default {
       border-top: none;
       border-left: none;
       border-right: none;
+      margin-bottom: 20px;
       border-bottom: 1px solid transparent;
       border-image: linear-gradient(to left, #e8c547 30%, #c20114 100%);
       border-image-slice: 1;
