@@ -84,6 +84,7 @@ export default {
     font-size: $font-large;
     font-weight: bold;
     letter-spacing: 0.5px;
+    padding-top: 3px;
     word-spacing: 3px;
     cursor: pointer;
 
@@ -96,6 +97,7 @@ export default {
     }
 
     @media only screen and (min-width: $tablet) {
+      padding: 0;
       justify-content: flex-start;
       font-size: $font-xxxxl;
       width: 250px;
