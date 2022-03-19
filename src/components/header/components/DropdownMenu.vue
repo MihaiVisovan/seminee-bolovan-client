@@ -68,12 +68,8 @@ export default {
     &__category {
       height: 40px;
       padding-bottom: 3px;
-      border-bottom: 1px solid transparent;
-      // these three below properties are required for iOS devices
-      // for the gradient to show only at the bottom
-      border-top: 0px solid transparent;
-      border-right: 0px solid transparent;
-      border-left: 0px solid transparent;
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
       border-image: linear-gradient(to left, #e8c547 30%, #c20114 100%);
       border-image-slice: 1;
       display: flex;
