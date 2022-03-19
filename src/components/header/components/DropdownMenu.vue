@@ -70,6 +70,15 @@ export default {
       padding-bottom: 3px;
       border-bottom-width: 1px;
       border-bottom-style: solid;
+      // the following 6 lines are needed for iOS devices
+      // so only the bottom border will have linear-gradient
+      // transparent property doesn't work
+      border-right-width: 0px;
+      border-right-style: solid;
+      border-left-width: 0px;
+      border-left-style: solid;
+      border-top-width: 0px;
+      border-top-style: solid;
       border-image: linear-gradient(to left, #e8c547 30%, #c20114 100%);
       border-image-slice: 1;
       display: flex;
