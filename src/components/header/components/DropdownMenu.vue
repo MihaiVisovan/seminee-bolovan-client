@@ -68,6 +68,9 @@ export default {
     &__category {
       height: 40px;
       padding-bottom: 3px;
+      border-top: none;
+      border-left: none;
+      border-right: none;
       border-bottom: 1px solid transparent;
       border-image: linear-gradient(to left, #e8c547 30%, #c20114 100%);
       border-image-slice: 1;
