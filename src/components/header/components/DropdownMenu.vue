@@ -68,7 +68,6 @@ export default {
     &__category {
       height: 40px;
       padding-bottom: 3px;
-      margin-bottom: 20px;
       border-bottom: 1px solid transparent;
       // these three below properties are required for iOS devices
       // for the gradient to show only at the bottom
