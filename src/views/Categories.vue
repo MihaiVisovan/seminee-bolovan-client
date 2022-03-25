@@ -2,7 +2,7 @@
   <div :class="containerClass">
     <div :class="gridClass">
       <Card
-        @click="goToProductsPage(category)"
+        @click="renderProducts(category.id)"
         v-for="(category, index) in categories"
         :key="index"
       >
@@ -22,8 +22,10 @@
 </template>
 
 <script>
+import renderProducts from '@/helpers/common/renderProducts.js';
 import { mapState } from 'vuex';
 import Card from '@/common/components/Card.vue';
+
 export default {
   name: 'Categories',
   components: {
@@ -50,15 +52,7 @@ export default {
     },
   },
   methods: {
-    goToProductsPage(category) {
-      // this will also be used as the category ID in the database, so it has to be unique
-      const categoryId = category.shortTitle.toLowerCase().replaceAll(' ', '-');
-
-      this.$router.push({
-        name: 'Products',
-        params: { categoryId: categoryId },
-      });
-    },
+    renderProducts,
   },
 };
 </script>
@@ -66,11 +60,6 @@ export default {
 <style lang="scss" scoped>
 .categories {
   width: 100%;
-  padding: 20px 0;
-
-  @media only screen and (min-width: $mobile) {
-    padding: 20px;
-  }
 
   &__grid {
     max-width: 1200px;

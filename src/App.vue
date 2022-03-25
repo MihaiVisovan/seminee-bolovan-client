@@ -40,6 +40,7 @@ export default {
   position: relative;
   &__content {
     min-height: 500px;
+    padding: 15px;
   }
 }
 </style>

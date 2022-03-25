@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Categories from '@/views/Categories.vue';
 
+const Categories = () => import('@/views/Categories.vue');
 const Products = () => import('@/views/Products.vue');
 const Product = () => import('@/views/Product.vue');
 const Cart = () => import('@/views/Cart.vue');

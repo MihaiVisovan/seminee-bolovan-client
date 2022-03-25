@@ -2,7 +2,7 @@
   <div :class="containerClass" v-if="showMenu">
     <div :class="categoriesClass">
       <div
-        @click="goToProductsPage(category)"
+        @click="renderProducts(category.id), setShowMenu(false)"
         v-for="(category, index) in categories"
         :key="index"
         :class="categoryClass"
@@ -14,13 +14,14 @@
 </template>
 
 <script>
+import renderProducts from '@/helpers/common/renderProducts.js';
 import { mapState, mapMutations } from 'vuex';
+
 export default {
   name: 'Menu',
   data() {
     return {
       containerClass: 'menu',
-      showMenu: true,
     };
   },
   computed: {
@@ -34,16 +35,7 @@ export default {
   },
   methods: {
     ...mapMutations(['setShowMenu']),
-    goToProductsPage(category) {
-      // this will also be used as the category ID in the database, so it has to be unique
-      const categoryId = category.shortTitle.toLowerCase().replaceAll(' ', '-');
-
-      this.$router.push({
-        name: 'Products',
-        params: { categoryId: categoryId },
-      });
-      this.setShowMenu(false);
-    },
+    renderProducts,
   },
 };
 </script>

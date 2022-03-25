@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex';
 import DropdownIcon from '@/components/header/components/DropdownIcon.vue';
 import SearchboxDesktop from '@/components/header/components/SearchboxDesktop.vue';
 import CartIcon from '@/assets/icons/CartIcon.vue';
@@ -46,6 +47,7 @@ export default {
     },
   },
   methods: {
+    ...mapMutations(['setShowMenu']),
     addCartAnimation() {
       const cart = document.getElementById('cart');
       cart.classList.add(this.cartAnimationClass);
@@ -59,9 +61,11 @@ export default {
         cart.classList.remove(this.cartAnimationClass);
         cart.classList.remove(this.cartAnimationReversedClass);
       }, 1000);
+      this.setShowMenu(false);
     },
     goHome() {
       this.$router.push({ name: 'Categories' });
+      this.setShowMenu(false);
     },
   },
 };
@@ -91,19 +95,20 @@ export default {
     padding-top: 3px;
     word-spacing: 3px;
     cursor: pointer;
+    min-width: 150px;
 
     @media only screen and (min-width: $s-mobile) {
       font-size: $font-xl;
     }
 
     @media only screen and (min-width: $mobile) {
-      font-size: $font-xxxl;
+      font-size: $font-3xl;
     }
 
     @media only screen and (min-width: $tablet) {
       padding: 0;
       justify-content: flex-start;
-      font-size: $font-xxxxl;
+      font-size: $font-4xl;
       width: 250px;
       flex: none;
     }

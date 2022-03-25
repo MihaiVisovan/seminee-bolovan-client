@@ -36,8 +36,9 @@ export default {
   box-shadow: 0px 2px 4px 2px #dcdcdc;
   margin: 15px;
   padding: 15px;
-  width: calc(90% - 30px);
+  width: 100%;
   cursor: pointer;
+  min-width: 150px;
 
   &:hover {
     box-shadow: 0px 1px 4px 4px #dcdcdc;

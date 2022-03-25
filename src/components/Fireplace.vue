@@ -19,8 +19,12 @@ export default {
 
 <style lang="scss" scoped>
 video {
+  padding: 0;
+  border: none;
+  margin: 0;
   width: 100%;
   height: 200px;
   background: black;
+  display: block;
 }
 </style>

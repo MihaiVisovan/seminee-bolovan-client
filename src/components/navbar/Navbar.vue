@@ -2,9 +2,13 @@
   <div :class="containerClass">
     <SearchboxMobile />
     <div :class="categoriesClass">
-      <div @click="goToProductsPage(category)" v-for="(category, index) in categories" :key="index">
+      <div
+        @click="renderProducts(category.id)"
+        v-for="(category, index) in categories"
+        :key="index"
+      >
         <div :class="categoryClass">
-          <div :class="categoryNameClass">
+          <div :class="[categoryNameClass, categoryNameActiveClass(category.id)]">
             {{ category.shortTitle }}
           </div>
         </div>
@@ -15,6 +19,7 @@
 
 <script>
 import SearchboxMobile from '@/components/navbar/components/SearchboxMobile.vue';
+import renderProducts from '@/helpers/common/renderProducts.js';
 import { mapState } from 'vuex';
 
 export default {
@@ -38,17 +43,13 @@ export default {
     categoryNameClass() {
       return `${this.categoryClass}__name`;
     },
+    categoryNameActiveClass() {
+      return id =>
+        this.$route.params.categoryId === id ? `${this.categoryNameClass}__active` : '';
+    },
   },
   methods: {
-    goToProductsPage(category) {
-      // this will also be used as the category ID in the database, so it has to be unique
-      const categoryId = category.shortTitle.toLowerCase().replaceAll(' ', '-');
-
-      this.$router.push({
-        name: 'Products',
-        params: { categoryId: categoryId },
-      });
-    },
+    renderProducts,
   },
 };
 </script>
@@ -93,9 +94,21 @@ export default {
         border: 1px solid transparent;
         border-radius: 50px;
         padding: 3px 10px;
+        transition: all 0.2s ease-in-out;
+
+        &__active {
+          box-shadow: inset 0px 0px 2px 2px white;
+          border-radius: 50px;
+        }
 
         &:hover {
-          border-color: white;
+          box-shadow: inset 0px 0px 2px 2px white;
+          border-radius: 50px;
+        }
+
+        &:active {
+          transition: none;
+          transform: scale(95%);
         }
       }
     }
