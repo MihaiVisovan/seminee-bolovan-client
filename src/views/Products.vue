@@ -2,7 +2,7 @@
   <div :class="containerClass">
     <div :class="categoryClass">
       <span :class="categoryLineClass"></span>
-      <div>{{ category.longTitle }}</div>
+      <div :class="categoryTitleClass">{{ category.longTitle }}</div>
       <span :class="categoryLineClass"></span>
     </div>
     <div :class="contentClass">
@@ -52,6 +52,9 @@ export default {
     },
     categoryLineClass() {
       return `${this.categoryClass}__line`;
+    },
+    categoryTitleClass() {
+      return `${this.categoryClass}__title`;
     },
     contentClass() {
       return `${this.containerClass}__content`;
@@ -107,6 +110,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding-top: 3px;
 
     &__line {
       width: 15px;
@@ -118,8 +122,16 @@ export default {
       align-items: center;
     }
 
+    &__title {
+      padding-top: 3px;
+    }
+
     @media only screen and (min-width: $mobile) {
       font-size: $font-4xl;
+
+      &__title {
+        padding-top: 0px;
+      }
 
       &__line {
         width: 20px;
