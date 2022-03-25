@@ -112,6 +112,10 @@ export default {
     align-items: center;
     padding-top: 3px;
 
+    @media only screen and (min-width: $laptop) {
+      display: none;
+    }
+
     &__line {
       width: 15px;
       margin: 0 5px;
@@ -129,23 +133,10 @@ export default {
     @media only screen and (min-width: $mobile) {
       font-size: $font-4xl;
 
-      &__title {
-        padding-top: 0px;
-      }
-
       &__line {
         width: 20px;
         margin: 0 10px;
         border-width: 2px;
-      }
-    }
-
-    @media only screen and (min-width: $tablet) {
-      font-size: $font-5xl;
-
-      &__line {
-        width: 30px;
-        margin: 0 15px;
       }
     }
   }
@@ -170,7 +161,8 @@ export default {
     }
 
     &__grid {
-      flex: 1;
+      flex-grow: 1;
+      flex-basis: 0;
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
