@@ -1,7 +1,7 @@
 <template>
   <div :class="containerClass">
     <Header />
-    <DropdownMenu v-if="showMenu" />
+    <Menu v-if="showMenu" />
     <Navbar />
     <Fireplace />
     <router-view :class="contentClass"></router-view>
@@ -11,15 +11,15 @@
 
 <script>
 import Header from '@/components/header/Header.vue';
-import DropdownMenu from '@/components/header/components/DropdownMenu.vue';
+import Menu from '@/components/header/components/Menu.vue';
 import Navbar from '@/components/navbar/Navbar.vue';
-import Fireplace from '@/components/Fireplace.vue';
+import Fireplace from '@/common/components/Fireplace.vue';
 import Footer from '@/components/footer/Footer.vue';
 import { mapState } from 'vuex';
 
 export default {
   name: 'App',
-  components: { Header, Navbar, Footer, Fireplace, DropdownMenu },
+  components: { Header, Navbar, Footer, Fireplace, Menu },
   data() {
     return {
       containerClass: 'app',

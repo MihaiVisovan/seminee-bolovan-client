@@ -1,0 +1,65 @@
+[
+  {
+    "title": "CONTACT",
+    "details": [
+      {
+        "key": "Adresa: ",
+        "value": "Alba Iulia, B-dul Tudor Vladimirescu, nr. 66"
+      },
+      {
+        "key": "Tel: ",
+        "value": "0744.792.373, 0747.297.127"
+      },
+      {
+        "key": "Fax: ",
+        "value": "0358.110.556"
+      },
+      {
+        "key": "Email: ",
+        "value": "semineebolovan@gmail.com"
+      }
+    ]
+  },
+  {
+    "title": "SUPORT CLIENȚI",
+    "details": [
+      {
+        "key": "Adresa: ",
+        "value": "Alba Iulia, B-dul Tudor Vladimirescu, nr. 66"
+      },
+      {
+        "key": "Tel: ",
+        "value": "0744.792.373, 0747.297.127"
+      },
+      {
+        "key": "Fax: ",
+        "value": "0358.110.556"
+      },
+      {
+        "key": "Email: ",
+        "value": "semineebolovan@gmail.com"
+      }
+    ]
+  },
+  {
+    "title": "COMENZI ȘI LIVRARE",
+    "details": [
+      {
+        "key": "Adresa: ",
+        "value": "Alba Iulia, B-dul Tudor Vladimirescu, nr. 66"
+      },
+      {
+        "key": "Tel: ",
+        "value": "0744.792.373, 0747.297.127"
+      },
+      {
+        "key": "Fax: ",
+        "value": "0358.110.556"
+      },
+      {
+        "key": "Email: ",
+        "value": "semineebolovan@gmail.com"
+      }
+    ]
+  }
+]

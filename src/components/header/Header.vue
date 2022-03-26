@@ -1,11 +1,13 @@
 <template>
   <div :class="containerClass">
-    <DropdownIcon />
-    <div @click="goHome" :class="brandNameClass">ȘEMINEE BOLOVAN</div>
+    <div :class="dropdownIconClass">
+      <MenuIcon />
+    </div>
+    <div :class="brandNameClass" @click="goHome">ȘEMINEE BOLOVAN</div>
     <div :class="searchboxClass">
       <SearchboxDesktop />
     </div>
-    <div @click="addCartAnimation" :class="cartClass" id="cart">
+    <div :class="cartClass" @click="addCartAnimation" id="cart-icon">
       <CartIcon />
     </div>
   </div>
@@ -13,14 +15,14 @@
 
 <script>
 import { mapState, mapMutations } from 'vuex';
-import DropdownIcon from '@/components/header/components/DropdownIcon.vue';
+import MenuIcon from '@/components/header/components/MenuIcon.vue';
 import SearchboxDesktop from '@/components/header/components/SearchboxDesktop.vue';
 import CartIcon from '@/assets/icons/CartIcon.vue';
 
 export default {
   name: 'Header',
   components: {
-    DropdownIcon,
+    MenuIcon,
     SearchboxDesktop,
     CartIcon,
   },
@@ -32,6 +34,9 @@ export default {
   computed: {
     brandNameClass() {
       return `${this.containerClass}__name`;
+    },
+    dropdownIconClass() {
+      return `${this.containerClass}__dropdown_icon`;
     },
     searchboxClass() {
       return `${this.containerClass}__searchbox`;
@@ -49,7 +54,7 @@ export default {
   methods: {
     ...mapMutations(['setShowMenu']),
     addCartAnimation() {
-      const cart = document.getElementById('cart');
+      const cart = document.getElementById('cart-icon');
       cart.classList.add(this.cartAnimationClass);
 
       setTimeout(() => {

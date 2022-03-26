@@ -1,24 +1,26 @@
 <template>
   <div :class="containerClass">
     <div :class="categoryClass">
-      <span :class="categoryLineClass"></span>
       <div :class="categoryTitleClass">{{ category.longTitle }}</div>
-      <span :class="categoryLineClass"></span>
     </div>
     <div :class="contentClass">
-      <div :class="filterClass">Filters</div>
+      <div :class="filterClass">
+        <FilterPanel />
+      </div>
       <div :class="gridClass">
         <Card @click="goToProduct(product.id)" v-for="(product, index) in products" :key="index">
           <template v-slot:card-image>
             <div :class="imageWrapperClass">
-              <img :src="product.image" :class="imageClass" /></div
+              <img :class="imageClass" :src="product.image" /></div
           ></template>
           <template v-slot:card-details>
             <div :class="detailsClass">
-              <div :class="titleClass">{{ product.details.title }}</div>
+              <div :class="titleClass">{{ product.title }}</div>
               <div :class="priceWrapperClass">
-                <span> {{ product.details.price }} </span>
-                <span :class="priceCurrencyClass"> {{ product.details.currency }} </span>
+                <span> {{ product.price }} </span>
+                <span :class="priceCurrencyClass">
+                  {{ product.currency }}
+                </span>
               </div>
             </div>
           </template>
@@ -31,10 +33,13 @@
 <script>
 import { mapState, mapActions } from 'vuex';
 import Card from '@/common/components/Card.vue';
+import FilterPanel from '@/common/components/FilterPanel.vue';
+
 export default {
   name: 'Products',
   components: {
     Card,
+    FilterPanel,
   },
   data() {
     return {
@@ -60,7 +65,7 @@ export default {
       return `${this.containerClass}__content`;
     },
     filterClass() {
-      return `${this.contentClass}__filter_panel`;
+      return `${this.contentClass}__filters`;
     },
     gridClass() {
       return `${this.contentClass}__grid`;
@@ -101,43 +106,25 @@ export default {
   flex-direction: column;
 
   &__category {
-    font-size: $font-2xl;
+    font-size: $font-large;
     min-width: 300px;
-    text-transform: uppercase;
     font-weight: bold;
-    letter-spacing: 1px;
     word-spacing: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 3px;
+    font-family: 'Merriweather', serif;
+
+    @media only screen and (min-width: $mobile) {
+      font-size: $font-2xl;
+    }
+
+    @media only screen and (min-width: $tablet) {
+      font-size: $font-3xl;
+    }
 
     @media only screen and (min-width: $laptop) {
       display: none;
-    }
-
-    &__line {
-      width: 15px;
-      margin: 0 5px;
-      border: 1px solid black;
-      border-radius: 50px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    &__title {
-      padding-top: 3px;
-    }
-
-    @media only screen and (min-width: $mobile) {
-      font-size: $font-4xl;
-
-      &__line {
-        width: 20px;
-        margin: 0 10px;
-        border-width: 2px;
-      }
     }
   }
 
@@ -145,7 +132,7 @@ export default {
     display: flex;
     justify-content: center;
 
-    &__filter_panel {
+    &__filters {
       width: 300px;
       margin: 15px;
       display: none;

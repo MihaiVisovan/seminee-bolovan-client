@@ -1,19 +1,20 @@
 <template>
   <div :class="containerClass">
-    <SearchboxMobile />
-    <div :class="categoriesClass">
-      <div
+    <div :class="searchboxClass">
+      <SearchboxMobile />
+    </div>
+    <ul :class="categoriesClass">
+      <li
+        :class="categoryClass"
         @click="renderProducts(category.id)"
         v-for="(category, index) in categories"
         :key="index"
       >
-        <div :class="categoryClass">
-          <div :class="[categoryNameClass, categoryNameActiveClass(category.id)]">
-            {{ category.shortTitle }}
-          </div>
+        <div :class="[categoryNameClass, categoryNameActiveClass(category.id)]">
+          {{ category.shortTitle }}
         </div>
-      </div>
-    </div>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -34,6 +35,9 @@ export default {
   },
   computed: {
     ...mapState(['categories']),
+    searchboxClass() {
+      return `${this.containerClass}__searchbox`;
+    },
     categoriesClass() {
       return `${this.containerClass}__categories`;
     },
@@ -67,9 +71,16 @@ export default {
     height: 40px;
   }
 
+  &__searchbox {
+    width: 100%;
+
+    @media only screen and (min-width: $laptop) {
+      display: none;
+    }
+  }
+
   &__categories {
     width: 100%;
-    height: 100%;
     display: none;
     justify-content: center;
     align-items: center;
@@ -79,7 +90,7 @@ export default {
     }
 
     &__category {
-      margin-right: 15px;
+      list-style: none;
       height: 100%;
       font-size: $font-small;
       font-family: 'Merriweather', serif;

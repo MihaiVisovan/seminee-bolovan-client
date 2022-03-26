@@ -1,5 +1,5 @@
 <template>
-  <div :class="containerClass">{{ product.details.title }}</div>
+  <div :class="containerClass">{{ product.title }}</div>
 </template>
 
 <script>

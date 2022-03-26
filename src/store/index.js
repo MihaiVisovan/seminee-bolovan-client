@@ -1,12 +1,16 @@
 import { createStore } from 'vuex';
 import categories from '@/assets/data/categories.json';
 import products from '@/assets/data/products.json';
+import filters from '@/assets/data/filters.json';
+import footerInfo from '@/assets/data/footerInfo.json';
 
 export default createStore({
   state: {
     showMenu: false,
     categories,
     products,
+    filters,
+    footerInfo,
     category: {},
     product: {},
   },

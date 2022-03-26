@@ -1,15 +1,15 @@
 <template>
   <div :class="containerClass" v-if="showMenu">
-    <div :class="categoriesClass">
-      <div
+    <ul :class="categoriesClass">
+      <li
+        :class="categoryClass"
         @click="renderProducts(category.id), setShowMenu(false)"
         v-for="(category, index) in categories"
         :key="index"
-        :class="categoryClass"
       >
         {{ category.longTitle }}
-      </div>
-    </div>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -57,6 +57,8 @@ export default {
   }
 
   &__categories {
+    list-style: none;
+    padding-inline-start: 0;
     &__category {
       height: 40px;
       padding-bottom: 3px;
@@ -64,7 +66,7 @@ export default {
       border-bottom-style: solid;
       // the following 6 lines are needed for iOS devices
       // so only the bottom border will have linear-gradient
-      // transparent property doesn't work
+      // because transparent property doesn't work
       border-right-width: 0px;
       border-right-style: solid;
       border-left-width: 0px;

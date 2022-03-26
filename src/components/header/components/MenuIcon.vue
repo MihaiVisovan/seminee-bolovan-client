@@ -1,7 +1,7 @@
 <template>
   <div @click="toggleMenu" :class="containerClass">
-    <div :class="firstLineClass" id="menu-first-line"></div>
-    <div :class="secondLineClass" id="menu-second-line"></div>
+    <div :class="firstLineClass" id="dropdown-icon-first-line"></div>
+    <div :class="secondLineClass" id="dropdown-icon-second-line"></div>
   </div>
 </template>
 
@@ -9,10 +9,10 @@
 import { mapState, mapMutations } from 'vuex';
 
 export default {
-  name: 'Dropdown',
+  name: 'MenuIcon',
   data() {
     return {
-      containerClass: 'dropdown',
+      containerClass: 'menu_icon',
     };
   },
   watch: {
@@ -47,21 +47,21 @@ export default {
   methods: {
     ...mapMutations(['setShowMenu']),
     triggerIconAnimation(newValue) {
-      const menuFirstLine = document.getElementById('menu-first-line');
-      const menuSecondLine = document.getElementById('menu-second-line');
+      const iconFirstLine = document.getElementById('dropdown-icon-first-line');
+      const iconSecondLine = document.getElementById('dropdown-icon-second-line');
 
       if (newValue) {
-        menuFirstLine.classList.add(this.firstLineRotateClass);
-        menuSecondLine.classList.add(this.secondLineRotateClass);
+        iconFirstLine.classList.add(this.firstLineRotateClass);
+        iconSecondLine.classList.add(this.secondLineRotateClass);
 
-        menuFirstLine.classList.remove(this.firstLineRotateReversedClass);
-        menuSecondLine.classList.remove(this.secondLineRotateReversedClass);
+        iconFirstLine.classList.remove(this.firstLineRotateReversedClass);
+        iconSecondLine.classList.remove(this.secondLineRotateReversedClass);
       } else {
-        menuFirstLine.classList.add(this.firstLineRotateReversedClass);
-        menuSecondLine.classList.add(this.secondLineRotateReversedClass);
+        iconFirstLine.classList.add(this.firstLineRotateReversedClass);
+        iconSecondLine.classList.add(this.secondLineRotateReversedClass);
 
-        menuFirstLine.classList.remove(this.firstLineRotateClass);
-        menuSecondLine.classList.remove(this.secondLineRotateClass);
+        iconFirstLine.classList.remove(this.firstLineRotateClass);
+        iconSecondLine.classList.remove(this.secondLineRotateClass);
       }
     },
     toggleMenu() {
@@ -74,7 +74,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.dropdown {
+.menu_icon {
   width: 50px;
   height: 100%;
   display: flex;

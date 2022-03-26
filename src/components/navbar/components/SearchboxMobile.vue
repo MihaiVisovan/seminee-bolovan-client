@@ -29,7 +29,6 @@ export default {
 <style lang="scss" scoped>
 .searchbox_mobile {
   height: 35px;
-  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,10 +41,6 @@ export default {
     left: 35px;
     top: 7px;
     fill: white;
-  }
-
-  @media only screen and (min-width: $laptop) {
-    display: none;
   }
 }
 
