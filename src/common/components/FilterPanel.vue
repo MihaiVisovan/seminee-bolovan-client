@@ -1,5 +1,5 @@
 <template>
-  <div :class="containerClass"><ul</div>
+  <div :class="containerClass"></div>
 </template>
 
 <script>
