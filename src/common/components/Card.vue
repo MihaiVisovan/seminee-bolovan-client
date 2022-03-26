@@ -33,15 +33,15 @@ export default {
   background: white;
   display: flex;
   flex-direction: column;
-  box-shadow: 0px 2px 4px 2px #dcdcdc;
+  box-shadow: 0px 2px 4px 2px $color-light-grey;
   margin: 15px;
-  padding: 15px;
+  padding: 20px;
   width: 100%;
   cursor: pointer;
   min-width: 150px;
 
   &:hover {
-    box-shadow: 0px 1px 4px 4px #dcdcdc;
+    box-shadow: 0px 1px 4px 4px $color-light-grey;
   }
 
   @media only screen and (min-width: $mobile) {

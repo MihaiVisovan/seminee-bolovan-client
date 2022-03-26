@@ -10,14 +10,15 @@ import MagnifyingGlassIcon from '@/assets/icons/MagnifyingGlassIcon.vue';
 
 export default {
   name: 'SearchboxMobile',
+  components: {
+    MagnifyingGlassIcon,
+  },
   data() {
     return {
       containerClass: 'searchbox_mobile',
     };
   },
-  components: {
-    MagnifyingGlassIcon,
-  },
+
   computed: {
     searchIconClass() {
       return `${this.containerClass}__icon`;

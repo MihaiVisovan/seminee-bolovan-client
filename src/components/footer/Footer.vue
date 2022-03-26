@@ -48,15 +48,12 @@ export default {
 .footer {
   background: black;
   width: 100%;
-  padding: 25px;
+  padding: 20px;
 
   &__wrapper {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    padding-inline-start: 0;
-    margin-block-start: 0;
-    margin-block-end: 0;
   }
   &__content {
     display: flex;
@@ -77,8 +74,6 @@ export default {
     }
 
     &__details {
-      list-style: none;
-      padding-inline-start: 0;
       font-family: 'Merriweather', serif;
       font-size: $font-small;
       color: white;

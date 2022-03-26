@@ -33,7 +33,7 @@
 <script>
 import { mapState, mapActions } from 'vuex';
 import Card from '@/common/components/Card.vue';
-import FilterPanel from '@/common/components/FilterPanel.vue';
+import FilterPanel from '@/components/filter_panel/FilterPanel.vue';
 
 export default {
   name: 'Products',
@@ -132,19 +132,22 @@ export default {
   &__content {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+
+    @media only screen and (min-width: $laptop) {
+      flex-direction: row;
+    }
 
     &__filters {
-      width: 300px;
       margin: 15px;
-      display: none;
-      justify-content: center;
-      align-items: center;
-      font-size: $font-3xl;
+      font-size: $font-small;
       font-family: 'Merriweather', serif;
-      box-shadow: 3px 0px 4px 3px $color-light-grey;
+      font-weight: 400;
+      box-shadow: 2px 2px 3px 2px $color-light-grey;
 
       @media only screen and (min-width: $laptop) {
-        display: flex;
+        width: 300px;
+        font-size: $font-medium;
       }
     }
 

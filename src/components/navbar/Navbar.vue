@@ -25,14 +25,15 @@ import { mapState } from 'vuex';
 
 export default {
   name: 'Navbar',
+  components: {
+    SearchboxMobile,
+  },
   data() {
     return {
       containerClass: 'navbar',
     };
   },
-  components: {
-    SearchboxMobile,
-  },
+
   computed: {
     ...mapState(['categories']),
     searchboxClass() {
@@ -90,7 +91,7 @@ export default {
     }
 
     &__category {
-      list-style: none;
+      margin-right: 15px;
       height: 100%;
       font-size: $font-small;
       font-family: 'Merriweather', serif;

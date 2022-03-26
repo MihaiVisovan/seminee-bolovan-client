@@ -1,17 +1,21 @@
 [
   {
+    "id": "putere",
     "name": "Putere",
     "options": [10, 15, 2, 3, 5, 9, 14]
   },
   {
+    "id": "tip-sticlă",
     "name": "Tip sticlă",
     "options": ["Standard", "Sticlă dreapta", "Sticlă stânga"]
   },
   {
+    "id": "tip-deschidere",
     "name": "Tip deschidere",
     "options": ["Verticală"]
   },
   {
+    "id": "tip-material",
     "name": "Tip material",
     "options": ["Fontă", "Oțel și șamotă"]
   }

@@ -57,8 +57,6 @@ export default {
   }
 
   &__categories {
-    list-style: none;
-    padding-inline-start: 0;
     &__category {
       height: 40px;
       padding-bottom: 3px;
