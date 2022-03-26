@@ -1,9 +1,11 @@
 <template>
-  <div :class="containerClass">
+  <div :class="containerClass" @click="rotateArrow">
     <div :class="nameClass">
       {{ filter.name }}
     </div>
-    <div :class="iconClass" style="color: red"><FilterIcon /></div>
+    <div :class="[iconClass, iconRotatedClass]" style="color: red">
+      <FilterIcon />
+    </div>
   </div>
 </template>
 
@@ -18,14 +20,27 @@ export default {
   data() {
     return {
       containerClass: 'filter',
+      rotateIcon: false,
     };
   },
   props: {
     filter: Object,
   },
   computed: {
-    nameClass() {},
-    iconClass() {},
+    nameClass() {
+      return `${this.containerClass}__name`;
+    },
+    iconClass() {
+      return `${this.containerClass}__icon`;
+    },
+    iconRotatedClass() {
+      return this.rotateIcon ? `${this.iconClass}__rotated` : '';
+    },
+  },
+  methods: {
+    rotateArrow() {
+      this.rotateIcon = !this.rotateIcon;
+    },
   },
 };
 </script>
@@ -43,6 +58,16 @@ export default {
 
   @media screen and (min-width: $laptop) {
     height: 50px;
+  }
+
+  &__name {
+  }
+
+  &__icon {
+    transition: transform 0.3s ease-out;
+    &__rotated {
+      transform: rotate(180deg);
+    }
   }
 }
 </style>
