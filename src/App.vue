@@ -41,6 +41,10 @@ export default {
   &__content {
     min-height: 500px;
     padding: 15px;
+
+    @media screen and (min-width: $laptop) {
+      padding: 50px;
+    }
   }
 }
 </style>

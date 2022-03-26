@@ -106,6 +106,7 @@ export default {
   flex-direction: column;
 
   &__category {
+    padding: 10px 0;
     font-size: $font-large;
     min-width: 300px;
     font-weight: bold;
