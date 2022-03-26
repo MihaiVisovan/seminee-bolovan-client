@@ -40,10 +40,10 @@ export default {
   position: relative;
   &__content {
     min-height: 500px;
-    padding: 15px;
+    padding: 15px 5px;
 
     @media screen and (min-width: $laptop) {
-      padding: 50px;
+      padding: 50px 5px;
     }
   }
 }
