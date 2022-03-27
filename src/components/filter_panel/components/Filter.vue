@@ -1,45 +1,56 @@
 <template>
-  <div :class="containerClass" @click="rotateArrow">
-    <div :class="nameClass">
-      {{ filter.name }}
+  <div :class="containerClass">
+    <div :class="collapsedFilterClass" @click="toggleOptions">
+      <div :class="nameClass">
+        {{ filter.name }}
+      </div>
+      <div :class="[iconClass, iconRotatedClass]">
+        <FilterIcon />
+      </div>
     </div>
-    <div :class="[iconClass, iconRotatedClass]" style="color: red">
-      <FilterIcon />
-    </div>
+    <FilterOptions :filterOptions="filter.options" v-if="showOptions" />
   </div>
 </template>
 
 <script>
 import FilterIcon from '@/assets/icons/FilterIcon.vue';
+import FilterOptions from '@/components/filter_panel/components/FilterOptions.vue';
 
 export default {
   name: 'Filter',
   components: {
     FilterIcon,
+    FilterOptions,
   },
   data() {
     return {
       containerClass: 'filter',
-      rotateIcon: false,
+      showOptions: false,
     };
   },
   props: {
     filter: Object,
   },
   computed: {
+    collapsedFilterClass() {
+      return `${this.containerClass}__collapsed`;
+    },
     nameClass() {
-      return `${this.containerClass}__name`;
+      return `${this.collapsedFilterClass}__name`;
     },
     iconClass() {
-      return `${this.containerClass}__icon`;
+      return `${this.collapsedFilterClass}__icon`;
     },
     iconRotatedClass() {
-      return this.rotateIcon ? `${this.iconClass}__rotated` : '';
+      return this.showOptions ? `${this.iconClass}__rotated` : '';
+    },
+    expandedFilterClass() {
+      return `${this.containerClass}__expanded`;
     },
   },
   methods: {
-    rotateArrow() {
-      this.rotateIcon = !this.rotateIcon;
+    toggleOptions() {
+      this.showOptions = !this.showOptions;
     },
   },
 };
@@ -47,27 +58,35 @@ export default {
 
 <style lang="scss" scoped>
 .filter {
-  padding: 20px;
-  height: 40px;
-  width: 100%;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid $color-light-grey;
-  cursor: pointer;
+  flex-direction: column;
 
-  @media screen and (min-width: $laptop) {
-    height: 50px;
-  }
+  &__collapsed {
+    padding: 20px;
+    height: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid $color-light-grey;
+    cursor: pointer;
 
-  &__name {
-  }
-
-  &__icon {
-    transition: transform 0.3s ease-out;
-    &__rotated {
-      transform: rotate(180deg);
+    @media screen and (min-width: $laptop) {
+      height: 50px;
     }
+
+    &__name {
+    }
+
+    &__icon {
+      transition: transform 0.3s ease-out;
+      &__rotated {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &__expanded {
   }
 }
 </style>
