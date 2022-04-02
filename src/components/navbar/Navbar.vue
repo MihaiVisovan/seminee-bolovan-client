@@ -7,8 +7,7 @@
       <li
         :class="categoryClass"
         @click="renderProducts(category.id)"
-        v-for="(category, index) in categories"
-        :key="index"
+        v-for="category in categories"
       >
         <div :class="[categoryNameClass, categoryNameActiveClass(category.id)]">
           {{ category.shortTitle }}

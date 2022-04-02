@@ -1,11 +1,7 @@
 <template>
   <div :class="containerClass">
     <div :class="gridClass">
-      <Card
-        @click="renderProducts(category.id)"
-        v-for="(category, index) in categories"
-        :key="index"
-      >
+      <Card @click="renderProducts(category.id)" v-for="category in categories">
         <template v-slot:card-image>
           <div :class="imageWrapperClass">
             <img :src="category.image" :class="imageClass" />

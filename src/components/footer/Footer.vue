@@ -1,10 +1,10 @@
 <template>
   <div :class="containerClass">
     <ul :class="wrapperClass">
-      <li :class="contentClass" v-for="(info, index) in footerInfo" :key="index">
+      <li :class="contentClass" v-for="info in footerInfo">
         <div :class="titleClass">{{ info.title }}</div>
         <ul :class="detailsClass">
-          <li v-for="(detail, index) in info.details" :key="index">
+          <li v-for="detail in info.details">
             <span :class="detailsTitleClass"> {{ detail.key }} </span>
             <span> {{ detail.value }} </span>
           </li>

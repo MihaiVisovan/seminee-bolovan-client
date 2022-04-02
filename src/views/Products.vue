@@ -8,7 +8,7 @@
         <FilterPanel />
       </div>
       <div :class="gridClass">
-        <Card @click="goToProduct(product.id)" v-for="(product, index) in products" :key="index">
+        <Card @click="goToProduct(product.id)" v-for="product in products">
           <template v-slot:card-image>
             <div :class="imageWrapperClass">
               <img :class="imageClass" :src="product.image" /></div

@@ -4,8 +4,7 @@
       <li
         :class="categoryClass"
         @click="renderProducts(category.id), setShowMenu(false)"
-        v-for="(category, index) in categories"
-        :key="index"
+        v-for="category in categories"
       >
         {{ category.longTitle }}
       </li>

@@ -1,6 +1,6 @@
 <template>
   <div :class="containerClass">
-    <div :class="collapsedFilterClass" @click="toggleOptions">
+    <div :class="[collapsedFilterClass, expandedFilterClass]" @click="toggleOptions">
       <div :class="nameClass">
         {{ filter.name }}
       </div>
@@ -8,11 +8,14 @@
         <FilterIcon />
       </div>
     </div>
-    <FilterOptions :filterOptions="filter.options" v-if="showOptions" />
+    <transition name="slide">
+      <FilterOptions :filter="filter" v-if="filter.expanded" />
+    </transition>
   </div>
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex';
 import FilterIcon from '@/assets/icons/FilterIcon.vue';
 import FilterOptions from '@/components/filter_panel/components/FilterOptions.vue';
 
@@ -32,8 +35,12 @@ export default {
     filter: Object,
   },
   computed: {
+    ...mapState(['filters']),
     collapsedFilterClass() {
       return `${this.containerClass}__collapsed`;
+    },
+    expandedFilterClass() {
+      return this.filter.expanded ? `${this.containerClass}__expanded` : '';
     },
     nameClass() {
       return `${this.collapsedFilterClass}__name`;
@@ -42,15 +49,22 @@ export default {
       return `${this.collapsedFilterClass}__icon`;
     },
     iconRotatedClass() {
-      return this.showOptions ? `${this.iconClass}__rotated` : '';
-    },
-    expandedFilterClass() {
-      return `${this.containerClass}__expanded`;
+      return this.filter.expanded ? `${this.iconClass}__rotated` : '';
     },
   },
   methods: {
+    ...mapMutations(['setFilters']),
     toggleOptions() {
-      this.showOptions = !this.showOptions;
+      const updatedFilters = this.filters.map(x => {
+        if (x.id === this.filter.id) {
+          return {
+            ...x,
+            expanded: !x.expanded,
+          };
+        }
+        return x;
+      });
+      this.setFilters(updatedFilters);
     },
   },
 };
@@ -60,6 +74,7 @@ export default {
 .filter {
   display: flex;
   flex-direction: column;
+  font-size: $font-small;
 
   &__collapsed {
     padding: 20px;
@@ -80,6 +95,7 @@ export default {
 
     &__icon {
       transition: transform 0.3s ease-out;
+
       &__rotated {
         transform: rotate(180deg);
       }
@@ -87,6 +103,21 @@ export default {
   }
 
   &__expanded {
+    background-color: $color-lighter-grey;
+  }
+}
+
+.slide-enter-active {
+  transform-origin: top center;
+  animation: 0.3s slide-top;
+}
+
+@keyframes slide-top {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
   }
 }
 </style>

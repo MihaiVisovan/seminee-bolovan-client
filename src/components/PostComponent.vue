@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      v-for="(post, index) in posts"
+      v-for="post in posts"
       :key="post._id"
       style="background: red; width: 50px; height: 50px"
       @dblclick="deletePost(post._id)"

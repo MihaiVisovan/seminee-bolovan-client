@@ -2,21 +2,81 @@
   {
     "id": "putere",
     "name": "Putere",
-    "options": [10, 15, 2, 3, 5, 9, 14]
+    "expanded": true,
+    "options": [{
+      "name": 10,
+      "id": 0,
+      "selected": false
+    },
+    {
+      "name": 15,
+      "id": 1,
+      "selected": false
+    },
+    {
+      "name": 3,
+      "id": 2,
+      "selected": false
+    },
+    {
+      "name": 9,
+      "id": 3,
+      "selected": false
+    },
+    {
+      "name": 5,
+      "id": 4,
+      "selected": false
+    },
+    {
+      "name": 4,
+      "id": 5,
+      "selected": false
+    }]
   },
   {
     "id": "tip-sticlă",
     "name": "Tip sticlă",
-    "options": ["Standard", "Sticlă dreapta", "Sticlă stânga"]
+    "expanded": true,
+    "options": [{
+      "name": "Standard",
+      "id": 0,
+      "selected": false
+    },
+    {
+      "name": "Sticlă dreapta",
+      "id": 1,
+      "selected": false
+    },
+    {
+      "name": "Sticlă stânga",
+      "id": 2,
+      "selected": false
+    }]
   },
   {
     "id": "tip-deschidere",
     "name": "Tip deschidere",
-    "options": ["Verticală"]
+    "expanded": true,
+    "options": [{
+      "name": "Verticală",
+      "id": 0,
+      "selected": false
+    }]
   },
   {
     "id": "tip-material",
     "name": "Tip material",
-    "options": ["Fontă", "Oțel și șamotă"]
+    "expanded": true,
+    "options": [{
+      "name": "Fontă",
+      "id": 0,
+      "selected": false
+    },
+    {
+      "name": "Oțel și șamotă",
+      "id": 1,
+      "selected": false
+    }]
   }
 ]

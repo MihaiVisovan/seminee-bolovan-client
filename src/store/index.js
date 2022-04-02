@@ -24,6 +24,9 @@ export default createStore({
     setProduct(state, product) {
       state.product = { ...product };
     },
+    setFilters(state, filters) {
+      state.filters = filters;
+    },
   },
   actions: {
     setCategory({ commit }, categoryId) {
