@@ -4,7 +4,11 @@
       <div :class="categoryTitleClass">{{ category.longTitle }}</div>
     </div>
     <div :class="contentClass">
-      <div :class="filterClass">
+      <div :class="sortFilterWrapperClass">
+        <div @click="renderFilters()" :class="sortFilterButtonClass">FILTREAZĂ</div>
+        <div :class="sortFilterButtonClass">SORTEAZĂ</div>
+      </div>
+      <div :class="filtersClass" ref="filters" @click.prevent="hideFilters()">
         <FilterPanel />
       </div>
       <div :class="gridClass">
@@ -64,7 +68,13 @@ export default {
     contentClass() {
       return `${this.containerClass}__content`;
     },
-    filterClass() {
+    sortFilterWrapperClass() {
+      return `${this.contentClass}__sort_filter`;
+    },
+    sortFilterButtonClass() {
+      return `${this.sortFilterWrapperClass}__button`;
+    },
+    filtersClass() {
       return `${this.contentClass}__filters`;
     },
     gridClass() {
@@ -93,6 +103,12 @@ export default {
     ...mapActions(['setCategory']),
     goToProduct(productId) {
       this.$router.push({ name: 'Product', params: { productId } });
+    },
+    renderFilters() {
+      this.$refs.filters.style = 'display: block';
+    },
+    hideFilters() {
+      this.$refs.filters.style = 'display: none';
     },
   },
 };
@@ -138,16 +154,61 @@ export default {
       flex-direction: row;
     }
 
+    &__sort_filter {
+      display: flex;
+      flex-direction: row;
+      margin: 15px 0;
+
+      &__button {
+        font-size: $font-small;
+        font-family: 'Merriweather', serif;
+        letter-spacing: 1px;
+        font-weight: 400;
+        box-shadow: 0px 0px 3px 3px $color-light-grey;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 40px;
+        margin: 0 30px;
+        width: 100%;
+        cursor: pointer;
+        color: white;
+        background: black;
+        font-weight: bold;
+
+        &:hover {
+          color: black;
+          background: white;
+        }
+      }
+
+      @media only screen and (min-width: $laptop) {
+        display: none;
+      }
+    }
+
     &__filters {
-      margin: 15px;
       font-size: $font-small;
       font-family: 'Merriweather', serif;
       font-weight: 400;
       box-shadow: 2px 2px 3px 2px $color-light-grey;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: white;
+      width: 100%;
+      height: 100%;
+      display: none;
 
       @media only screen and (min-width: $laptop) {
+        display: block;
+        margin: 15px;
+        position: unset;
         width: 300px;
         font-size: $font-medium;
+        background: none;
+        height: unset;
       }
     }
 

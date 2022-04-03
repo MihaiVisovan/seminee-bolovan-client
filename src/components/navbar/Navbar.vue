@@ -66,7 +66,6 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-
   @media only screen and (min-width: $laptop) {
     height: 40px;
   }
@@ -84,7 +83,6 @@ export default {
     display: none;
     justify-content: center;
     align-items: center;
-
     @media only screen and (min-width: $laptop) {
       display: flex;
     }
@@ -104,7 +102,7 @@ export default {
         color: white;
         border: 1px solid transparent;
         border-radius: 50px;
-        padding: 3px 10px;
+        padding: 4px 12px;
         transition: all 0.2s ease-in-out;
 
         &__active {
