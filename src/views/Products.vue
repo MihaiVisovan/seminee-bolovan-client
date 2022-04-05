@@ -5,10 +5,10 @@
     </div>
     <div :class="contentClass">
       <div :class="sortFilterWrapperClass">
-        <div @click="renderFilters()" :class="sortFilterButtonClass">FILTREAZĂ</div>
-        <div :class="sortFilterButtonClass">SORTEAZĂ</div>
+        <Button text="FILTREAZĂ" @click="setShowFilters(true)" />
+        <Button text="SORTEAZĂ" />
       </div>
-      <div :class="filtersClass" ref="filters" @click.prevent="hideFilters()">
+      <div :class="filtersClass" ref="filters">
         <FilterPanel />
       </div>
       <div :class="gridClass">
@@ -35,8 +35,9 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapState, mapMutations, mapActions } from 'vuex';
 import Card from '@/common/components/Card.vue';
+import Button from '@/common/components/Button.vue';
 import FilterPanel from '@/components/filter_panel/FilterPanel.vue';
 
 export default {
@@ -44,6 +45,7 @@ export default {
   components: {
     Card,
     FilterPanel,
+    Button,
   },
   data() {
     return {
@@ -54,8 +56,17 @@ export default {
     const categoryId = this.$route.params.categoryId;
     this.setCategory(categoryId);
   },
+  watch: {
+    showFilters(newValue, oldValue) {
+      if (newValue) {
+        this.$refs.filters.classList.add(this.filtersVisibleClass);
+      } else {
+        this.$refs.filters.classList.remove(this.filtersVisibleClass);
+      }
+    },
+  },
   computed: {
-    ...mapState(['products', 'category']),
+    ...mapState(['products', 'category', 'showFilters']),
     categoryClass() {
       return `${this.containerClass}__category`;
     },
@@ -71,11 +82,11 @@ export default {
     sortFilterWrapperClass() {
       return `${this.contentClass}__sort_filter`;
     },
-    sortFilterButtonClass() {
-      return `${this.sortFilterWrapperClass}__button`;
-    },
     filtersClass() {
       return `${this.contentClass}__filters`;
+    },
+    filtersVisibleClass() {
+      return `${this.filtersClass}__visible`;
     },
     gridClass() {
       return `${this.contentClass}__grid`;
@@ -100,15 +111,10 @@ export default {
     },
   },
   methods: {
+    ...mapMutations(['setShowFilters']),
     ...mapActions(['setCategory']),
     goToProduct(productId) {
       this.$router.push({ name: 'Product', params: { productId } });
-    },
-    renderFilters() {
-      this.$refs.filters.style = 'display: block';
-    },
-    hideFilters() {
-      this.$refs.filters.style = 'display: none';
     },
   },
 };
@@ -123,7 +129,7 @@ export default {
 
   &__category {
     padding: 10px 0;
-    font-size: $font-large;
+    font-size: $font-xl;
     min-width: 300px;
     font-weight: bold;
     word-spacing: 5px;
@@ -157,31 +163,8 @@ export default {
     &__sort_filter {
       display: flex;
       flex-direction: row;
-      margin: 15px 0;
-
-      &__button {
-        font-size: $font-small;
-        font-family: 'Merriweather', serif;
-        letter-spacing: 1px;
-        font-weight: 400;
-        box-shadow: 0px 0px 3px 3px $color-light-grey;
-        border-radius: 10px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 40px;
-        margin: 0 15px;
-        width: 100%;
-        cursor: pointer;
-        color: white;
-        background: black;
-        font-weight: bold;
-
-        &:hover {
-          color: black;
-          background: white;
-        }
-      }
+      margin-top: 30px;
+      margin-bottom: 10px;
 
       @media only screen and (min-width: $laptop) {
         display: none;
@@ -200,6 +183,10 @@ export default {
       width: 100%;
       height: 100%;
       display: none;
+
+      &__visible {
+        display: block;
+      }
 
       @media only screen and (min-width: $laptop) {
         display: block;

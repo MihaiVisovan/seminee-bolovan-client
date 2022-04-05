@@ -7,6 +7,7 @@ import footerInfo from '@/assets/data/footerInfo.json';
 export default createStore({
   state: {
     showMenu: false,
+    showFilters: false,
     categories,
     products,
     filters,
@@ -17,6 +18,9 @@ export default createStore({
   mutations: {
     setShowMenu(state, showMenu) {
       state.showMenu = showMenu;
+    },
+    setShowFilters(state, showFilters) {
+      state.showFilters = showFilters;
     },
     setCategory(state, category) {
       state.category = { ...category };

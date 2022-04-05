@@ -146,7 +146,7 @@ export default {
 
           &__selected {
             transform-origin: right center;
-            animation: 0.2s hide-right ease-in-out forwards;
+            animation: 0.2s show-checkbox ease-in-out forwards;
           }
         }
       }
@@ -158,7 +158,7 @@ export default {
   }
 }
 
-@keyframes hide-right {
+@keyframes show-checkbox {
   from {
     transform: scaleX(1);
   }
