@@ -56,7 +56,7 @@ export default {
 <style lang="scss" scoped>
 .filter_panel {
   position: relative;
-  height: calc(100vh - 70px);
+  height: calc(100% - 70px);
   overflow: auto;
 
   @media screen and (min-width: $laptop) {
