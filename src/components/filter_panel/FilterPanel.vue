@@ -55,14 +55,40 @@ export default {
 
 <style lang="scss" scoped>
 .filter_panel {
+  position: relative;
+  height: calc(100vh - 70px);
+  overflow: auto;
+
+  @media screen and (min-width: $laptop) {
+    height: 100%;
+    overflow: none;
+  }
+
   &__buttons {
     display: flex;
     flex-direction: row;
-    margin: 30px 0;
+    position: fixed;
+    bottom: 0px;
+    box-shadow: 0 -10px 40px 0px rgb(0 0 0 / 30%);
+    padding: 15px 0;
+    width: 100%;
 
     @media screen and (min-width: $laptop) {
       display: none;
     }
   }
+}
+
+.filter_panel::-webkit-scrollbar {
+  width: 8px;
+}
+
+.filter_panel::-webkit-scrollbar-thumb {
+  border-radius: 100px;
+  background-color: $color-medium-grey;
+}
+
+.filter_panel::-webkit-scrollbar-track {
+  border-radius: 100px;
 }
 </style>

@@ -98,10 +98,11 @@ export default {
 
 <style lang="scss" scoped>
 .filter_options {
+  border-bottom: 1px solid $color-light-grey;
+
   &__options {
     display: flex;
     flex-direction: column;
-    border-bottom: 1px solid $color-light-grey;
     padding: 10px 20px;
 
     &__option {
@@ -124,7 +125,7 @@ export default {
         width: 14px;
         padding: 1px;
         position: relative;
-        border: 1px solid $color-dark-grey;
+        border: 1px solid $color-darker-grey;
         border-radius: 3px;
 
         &__content {

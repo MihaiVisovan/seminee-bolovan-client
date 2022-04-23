@@ -58,10 +58,13 @@ export default {
   },
   watch: {
     showFilters(newValue, oldValue) {
+      const body = document.getElementsByTagName('body')[0];
       if (newValue) {
         this.$refs.filters.classList.add(this.filtersVisibleClass);
+        body.classList.add(this.bodyOverflowClass);
       } else {
         this.$refs.filters.classList.remove(this.filtersVisibleClass);
+        body.classList.remove(this.bodyOverflowClass);
       }
     },
   },
@@ -87,6 +90,9 @@ export default {
     },
     filtersVisibleClass() {
       return `${this.filtersClass}__visible`;
+    },
+    bodyOverflowClass() {
+      return `${this.containerClass}__body`;
     },
     gridClass() {
       return `${this.contentClass}__grid`;
@@ -120,12 +126,20 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .products {
   height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
+
+  &__body {
+    overflow-y: hidden;
+
+    @media only screen and (min-width: $laptop) {
+      overflow-y: auto;
+    }
+  }
 
   &__category {
     padding: 10px 0;
@@ -172,6 +186,8 @@ export default {
     }
 
     &__filters {
+      height: 100%;
+      width: 100%;
       font-size: $font-small;
       font-family: 'Merriweather', serif;
       font-weight: 400;
@@ -180,8 +196,6 @@ export default {
       top: 0;
       left: 0;
       background: white;
-      width: 100%;
-      height: 100%;
       display: none;
 
       &__visible {
@@ -195,7 +209,6 @@ export default {
         width: 300px;
         font-size: $font-medium;
         background: none;
-        height: unset;
       }
     }
 
@@ -235,7 +248,7 @@ export default {
         &__price {
           font-weight: 600;
           font-size: $font-medium;
-          color: $color-dark-grey;
+          color: $color-darker-grey;
 
           &__currency {
             padding-left: 3px;
