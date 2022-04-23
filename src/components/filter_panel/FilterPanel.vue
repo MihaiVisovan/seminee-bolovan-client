@@ -85,7 +85,7 @@ export default {
 
 .filter_panel::-webkit-scrollbar-thumb {
   border-radius: 100px;
-  background-color: $color-medium-grey;
+  background-color: $color-light-grey;
 }
 
 .filter_panel::-webkit-scrollbar-track {
