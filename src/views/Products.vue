@@ -192,7 +192,7 @@ export default {
       font-family: 'Merriweather', serif;
       font-weight: 400;
       box-shadow: 2px 2px 3px 2px $color-light-grey;
-      position: absolute;
+      position: fixed;
       top: 0;
       left: 0;
       background: white;
