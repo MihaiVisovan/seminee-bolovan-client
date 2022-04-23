@@ -89,6 +89,7 @@ export default {
 }
 
 .filter_panel::-webkit-scrollbar-track {
+  box-shadow: inset 0px 1px 2px $color-dark-grey;
   border-radius: 100px;
 }
 </style>
