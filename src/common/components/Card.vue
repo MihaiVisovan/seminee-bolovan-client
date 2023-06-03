@@ -1,9 +1,9 @@
 <template>
-  <div :class="containerClass">
-    <div :class="imageClass">
+  <div class="card">
+    <div class="card__image">
       <slot name="card-image"></slot>
     </div>
-    <div :class="detailsClass">
+    <div class="card__details">
       <slot name="card-details"></slot>
     </div>
   </div>
@@ -12,19 +12,6 @@
 <script>
 export default {
   name: 'Card',
-  data() {
-    return {
-      containerClass: 'card',
-    };
-  },
-  computed: {
-    imageClass() {
-      return `${this.containerClass}__image`;
-    },
-    detailsClass() {
-      return `${this.containerClass}__details`;
-    },
-  },
 };
 </script>
 

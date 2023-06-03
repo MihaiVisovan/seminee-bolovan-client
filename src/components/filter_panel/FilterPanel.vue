@@ -1,7 +1,7 @@
 <template>
-  <div :class="containerClass">
+  <div class="filter_panel">
     <Filter v-for="(filter, index) in filters" :key="index" :filter="filter" />
-    <div :class="buttonsClass">
+    <div class="filter_panel__buttons">
       <Button text="APLICĂ" @click="setShowFilters(false)" />
       <Button text="RESETEAZĂ" @click="resetFilters()" />
     </div>
@@ -19,16 +19,8 @@ export default {
     Filter,
     Button,
   },
-  data() {
-    return {
-      containerClass: 'filter_panel',
-    };
-  },
   computed: {
     ...mapState(['filters']),
-    buttonsClass() {
-      return `${this.containerClass}__buttons`;
-    },
   },
   methods: {
     ...mapMutations(['setShowFilters', 'setFilters']),

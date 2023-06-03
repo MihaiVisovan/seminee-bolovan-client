@@ -1,10 +1,10 @@
 <template>
-  <div :class="containerClass">
+  <div class="app">
     <Header />
     <Menu v-if="showMenu" />
     <Navbar />
     <Fireplace />
-    <router-view :class="contentClass"></router-view>
+    <router-view class="app__content"></router-view>
     <Footer />
   </div>
 </template>
@@ -20,16 +20,8 @@ import { mapState } from 'vuex';
 export default {
   name: 'App',
   components: { Header, Navbar, Footer, Fireplace, Menu },
-  data() {
-    return {
-      containerClass: 'app',
-    };
-  },
   computed: {
     ...mapState(['showMenu']),
-    contentClass() {
-      return `${this.containerClass}__content`;
-    },
   },
 };
 </script>

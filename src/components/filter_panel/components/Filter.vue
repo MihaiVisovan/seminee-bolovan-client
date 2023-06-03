@@ -1,10 +1,10 @@
 <template>
-  <div :class="containerClass">
-    <div :class="[collapsedFilterClass, expandedFilterClass]" @click="toggleOptions">
-      <div :class="nameClass">
+  <div class="filter">
+    <div :class="['filter__collapsed', expandedFilterClass]" @click="toggleOptions">
+      <div class="filter__name">
         {{ filter.name }}
       </div>
-      <div :class="[iconClass, iconRotatedClass]">
+      <div :class="['filter__icon', iconRotatedClass]">
         <FilterIcon />
       </div>
     </div>
@@ -27,7 +27,6 @@ export default {
   },
   data() {
     return {
-      containerClass: 'filter',
       showOptions: false,
     };
   },
@@ -36,20 +35,11 @@ export default {
   },
   computed: {
     ...mapState(['filters']),
-    collapsedFilterClass() {
-      return `${this.containerClass}__collapsed`;
-    },
     expandedFilterClass() {
-      return this.filter.expanded ? `${this.containerClass}__expanded` : '';
-    },
-    nameClass() {
-      return `${this.collapsedFilterClass}__name`;
-    },
-    iconClass() {
-      return `${this.collapsedFilterClass}__icon`;
+      return this.filter.expanded ? 'filter__expanded' : '';
     },
     iconRotatedClass() {
-      return this.filter.expanded ? `${this.iconClass}__rotated` : '';
+      return this.filter.expanded ? 'filter__icon__rotated' : '';
     },
   },
   methods: {
@@ -89,16 +79,13 @@ export default {
     @media screen and (min-width: $laptop) {
       height: 50px;
     }
+  }
 
-    &__name {
-    }
+  &__icon {
+    transition: transform 0.3s ease-out;
 
-    &__icon {
-      transition: transform 0.3s ease-out;
-
-      &__rotated {
-        transform: rotate(180deg);
-      }
+    &__rotated {
+      transform: rotate(180deg);
     }
   }
 

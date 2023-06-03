@@ -1,13 +1,13 @@
 <template>
-  <div :class="containerClass">
-    <div :class="dropdownIconClass">
+  <div class="header">
+    <div class="header__dropdown_icon">
       <MenuIcon />
     </div>
-    <div :class="brandNameClass" @click="goHome">ȘEMINEE BOLOVAN</div>
-    <div :class="searchboxClass">
+    <div class="header__name" @click="goHome">ȘEMINEE BOLOVAN</div>
+    <div class="header__searchbox">
       <SearchboxDesktop />
     </div>
-    <div :class="cartClass" @click="addCartAnimation" id="cart-icon">
+    <div class="header__cart" @click="addCartAnimation" id="cart-icon">
       <CartIcon />
     </div>
   </div>
@@ -26,45 +26,20 @@ export default {
     SearchboxDesktop,
     CartIcon,
   },
-  data() {
-    return {
-      containerClass: 'header',
-    };
-  },
-  computed: {
-    brandNameClass() {
-      return `${this.containerClass}__name`;
-    },
-    dropdownIconClass() {
-      return `${this.containerClass}__dropdown_icon`;
-    },
-    searchboxClass() {
-      return `${this.containerClass}__searchbox`;
-    },
-    cartClass() {
-      return `${this.containerClass}__cart`;
-    },
-    cartAnimationClass() {
-      return `${this.cartClass}__animation`;
-    },
-    cartAnimationReversedClass() {
-      return `${this.cartAnimationClass}__reversed`;
-    },
-  },
   methods: {
     ...mapMutations(['setShowMenu']),
     addCartAnimation() {
       const cart = document.getElementById('cart-icon');
-      cart.classList.add(this.cartAnimationClass);
+      cart.classList.add('header__cart__animation');
 
       setTimeout(() => {
-        cart.classList.add(this.cartAnimationReversedClass);
+        cart.classList.add('header__cart__animation__reversed');
         this.$router.push({ name: 'Cart' });
       }, 500);
 
       setTimeout(() => {
-        cart.classList.remove(this.cartAnimationClass);
-        cart.classList.remove(this.cartAnimationReversedClass);
+        cart.classList.remove('header__cart__animation');
+        cart.classList.remove('header__cart__animation__reversed');
       }, 1000);
       this.setShowMenu(false);
     },

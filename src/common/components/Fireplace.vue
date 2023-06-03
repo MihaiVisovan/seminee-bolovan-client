@@ -1,5 +1,5 @@
 <template>
-  <div :class="containerClass">
+  <div class="fireplace">
     <video autoplay muted loop>
       <source src="@/assets/videos/fireplace.mp4" type="video/mp4" />
     </video>
@@ -9,11 +9,6 @@
 <script>
 export default {
   name: 'Fireplace',
-  data() {
-    return {
-      containerClass: 'fireplace',
-    };
-  },
 };
 </script>
 

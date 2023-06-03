@@ -1,7 +1,7 @@
 <template>
-  <div @click="toggleMenu" :class="containerClass">
-    <div :class="firstLineClass" id="dropdown-icon-first-line"></div>
-    <div :class="secondLineClass" id="dropdown-icon-second-line"></div>
+  <div @click="toggleMenu" class="menu_icon">
+    <div class="menu_icon__first_line" id="dropdown-icon-first-line"></div>
+    <div class="menu_icon__second_line" id="dropdown-icon-second-line"></div>
   </div>
 </template>
 
@@ -10,39 +10,13 @@ import { mapState, mapMutations } from 'vuex';
 
 export default {
   name: 'MenuIcon',
-  data() {
-    return {
-      containerClass: 'menu_icon',
-    };
-  },
   watch: {
-    showMenu(newValue, oldValue) {
+    showMenu(newValue) {
       this.triggerIconAnimation(newValue);
     },
   },
   computed: {
     ...mapState(['showMenu']),
-    menuAnimationClass() {
-      return `${this.containerClass}__animation`;
-    },
-    firstLineClass() {
-      return `${this.containerClass}__first_line`;
-    },
-    firstLineRotateClass() {
-      return `${this.firstLineClass}__rotate`;
-    },
-    firstLineRotateReversedClass() {
-      return `${this.firstLineRotateClass}__reversed`;
-    },
-    secondLineClass() {
-      return `${this.containerClass}__second_line`;
-    },
-    secondLineRotateClass() {
-      return `${this.secondLineClass}__rotate`;
-    },
-    secondLineRotateReversedClass() {
-      return `${this.secondLineRotateClass}__reversed`;
-    },
   },
   methods: {
     ...mapMutations(['setShowMenu']),
@@ -51,22 +25,21 @@ export default {
       const iconSecondLine = document.getElementById('dropdown-icon-second-line');
 
       if (newValue) {
-        iconFirstLine.classList.add(this.firstLineRotateClass);
-        iconSecondLine.classList.add(this.secondLineRotateClass);
+        iconFirstLine.classList.add('menu_icon__first_line__rotate');
+        iconSecondLine.classList.add('menu_icon__second_line__rotate');
 
-        iconFirstLine.classList.remove(this.firstLineRotateReversedClass);
-        iconSecondLine.classList.remove(this.secondLineRotateReversedClass);
+        iconFirstLine.classList.remove('menu_icon__first_line__rotate--reversed');
+        iconSecondLine.classList.remove('menu_icon__second_line__rotate--reversed');
       } else {
-        iconFirstLine.classList.add(this.firstLineRotateReversedClass);
-        iconSecondLine.classList.add(this.secondLineRotateReversedClass);
+        iconFirstLine.classList.add('menu_icon__first_line__rotate--reversed');
+        iconSecondLine.classList.add('menu_icon__second_line__rotate--reversed');
 
-        iconFirstLine.classList.remove(this.firstLineRotateClass);
-        iconSecondLine.classList.remove(this.secondLineRotateClass);
+        iconFirstLine.classList.remove('menu_icon__first_line__rotate');
+        iconSecondLine.classList.remove('menu_icon__second_line__rotate');
       }
     },
     toggleMenu() {
       this.triggerIconAnimation();
-
       this.setShowMenu(!this.showMenu);
     },
   },
@@ -93,7 +66,7 @@ export default {
 
     &__rotate {
       transform: rotate(-45deg);
-      &__reversed {
+      &--reversed {
         transform: rotate(0deg);
       }
     }
@@ -108,7 +81,7 @@ export default {
 
     &__rotate {
       transform: translateY(5px) translateX(1px) rotate(45deg);
-      &__reversed {
+      &--reversed {
         transform: rotate(0deg);
       }
     }

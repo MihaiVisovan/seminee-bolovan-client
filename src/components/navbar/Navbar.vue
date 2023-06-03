@@ -1,15 +1,16 @@
 <template>
-  <div :class="containerClass">
-    <div :class="searchboxClass">
+  <div class="navbar">
+    <div class="navbar__searchbox">
       <SearchboxMobile />
     </div>
-    <ul :class="categoriesClass">
+    <ul class="navbar__categories">
       <li
-        :class="categoryClass"
+        class="navbar__category"
         @click="renderProducts(category.id)"
-        v-for="category in categories"
+        v-for="(category, index) in categories"
+        :key="index"
       >
-        <div :class="[categoryNameClass, categoryNameActiveClass(category.id)]">
+        <div :class="['navbar__category__name', categoryNameActiveClass(category.id)]">
           {{ category.shortTitle }}
         </div>
       </li>
@@ -27,29 +28,10 @@ export default {
   components: {
     SearchboxMobile,
   },
-  data() {
-    return {
-      containerClass: 'navbar',
-    };
-  },
-
   computed: {
     ...mapState(['categories']),
-    searchboxClass() {
-      return `${this.containerClass}__searchbox`;
-    },
-    categoriesClass() {
-      return `${this.containerClass}__categories`;
-    },
-    categoryClass() {
-      return `${this.categoriesClass}__category`;
-    },
-    categoryNameClass() {
-      return `${this.categoryClass}__name`;
-    },
     categoryNameActiveClass() {
-      return id =>
-        this.$route.params.categoryId === id ? `${this.categoryNameClass}__active` : '';
+      return id => (this.$route.params.categoryId === id ? `navbar__category__name--active` : '');
     },
   },
   methods: {
@@ -86,39 +68,39 @@ export default {
     @media only screen and (min-width: $laptop) {
       display: flex;
     }
+  }
 
-    &__category {
-      margin-right: 15px;
-      height: 100%;
-      font-size: $font-small;
-      font-family: 'Merriweather', serif;
-      cursor: pointer;
+  &__category {
+    margin-right: 15px;
+    height: 100%;
+    font-size: $font-small;
+    font-family: 'Merriweather', serif;
+    cursor: pointer;
 
-      @media only screen and (min-width: $desktop) {
-        font-size: $font-medium;
+    @media only screen and (min-width: $desktop) {
+      font-size: $font-medium;
+    }
+
+    &__name {
+      color: white;
+      border: 1px solid transparent;
+      border-radius: 50px;
+      padding: 4px 12px;
+      transition: all 0.2s ease-in-out;
+
+      &--active {
+        box-shadow: inset 0px 0px 2px 2px white;
+        border-radius: 50px;
       }
 
-      &__name {
-        color: white;
-        border: 1px solid transparent;
+      &:hover {
+        box-shadow: inset 0px 0px 2px 2px white;
         border-radius: 50px;
-        padding: 4px 12px;
-        transition: all 0.2s ease-in-out;
+      }
 
-        &__active {
-          box-shadow: inset 0px 0px 2px 2px white;
-          border-radius: 50px;
-        }
-
-        &:hover {
-          box-shadow: inset 0px 0px 2px 2px white;
-          border-radius: 50px;
-        }
-
-        &:active {
-          transition: none;
-          transform: scale(95%);
-        }
+      &:active {
+        transition: none;
+        transform: scale(95%);
       }
     }
   }

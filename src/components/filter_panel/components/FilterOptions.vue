@@ -1,18 +1,27 @@
 <template>
-  <div :class="containerClass">
-    <ul :class="optionsClass">
+  <div class="filter_options">
+    <ul class="filter_options__wrapper">
       <li
         @click="toggleOption(option.id)"
-        :class="[optionClass, option.selected ? optionSelectedClass : '']"
-        v-for="option in filter.options"
+        :class="[
+          'filter_options__option',
+          option.selected ? 'filter_options__option--selected' : '',
+        ]"
+        v-for="(option, index) in filter.options"
+        :key="index"
       >
-        <div :class="checkboxWrapperClass">
-          <div :class="checkboxContentClass">
+        <div class="filter_options__option__checkbox">
+          <div class="filter_options__option__checkbox__content">
             <Checkbox />
           </div>
-          <div :class="[coverClass, option.selected ? coverSelectedClass : '']"></div>
+          <div
+            :class="[
+              'filter_options__option__checkbox__cover',
+              option.selected ? 'filter_options__option__checkbox__cover--selected' : '',
+            ]"
+          ></div>
         </div>
-        <span :class="optionNameClass"> {{ option.name }} </span>
+        <span class="filter_options__option__name"> {{ option.name }} </span>
       </li>
     </ul>
   </div>
@@ -36,18 +45,6 @@ export default {
   },
   computed: {
     ...mapState(['filters']),
-    optionsClass() {
-      return `${this.containerClass}__options`;
-    },
-    optionClass() {
-      return `${this.optionsClass}__option`;
-    },
-    optionSelectedClass() {
-      return `${this.optionClass}__selected`;
-    },
-    checkboxWrapperClass() {
-      return `${this.optionClass}__checkbox`;
-    },
     checkboxContentClass() {
       return `${this.checkboxWrapperClass}__content`;
     },
@@ -100,61 +97,61 @@ export default {
 .filter_options {
   border-bottom: 1px solid $color-light-grey;
 
-  &__options {
+  &__wrapper {
     display: flex;
     flex-direction: column;
     padding: 10px 20px;
+  }
+  &__option {
+    height: 30px;
+    font-size: $font-xs;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
 
-    &__option {
-      height: 30px;
-      font-size: $font-xs;
-      width: 100%;
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      cursor: pointer;
+    &--selected {
+      background: linear-gradient(to left, #e8c547 20%, #c20114 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-      &__selected {
-        background: linear-gradient(to left, #e8c547 20%, #c20114 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+    &__checkbox {
+      height: 14px;
+      width: 14px;
+      padding: 1px;
+      position: relative;
+      border: 1px solid $color-darker-grey;
+      border-radius: 3px;
+
+      &__content {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
 
-      &__checkbox {
-        height: 14px;
-        width: 14px;
-        padding: 1px;
-        position: relative;
-        border: 1px solid $color-darker-grey;
+      &__cover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background: white;
         border-radius: 3px;
 
-        &__content {
-          height: 100%;
-          width: 100%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        &__cover {
-          position: absolute;
-          top: 0;
-          left: 0;
-          height: 100%;
-          width: 100%;
-          background: white;
-          border-radius: 3px;
-
-          &__selected {
-            transform-origin: right center;
-            animation: 0.2s show-checkbox ease-in-out forwards;
-          }
+        &--selected {
+          transform-origin: right center;
+          animation: 0.2s show-checkbox ease-in-out forwards;
         }
       }
+    }
 
-      &__name {
-        padding-left: 5px;
-      }
+    &__name {
+      padding-left: 5px;
     }
   }
 }

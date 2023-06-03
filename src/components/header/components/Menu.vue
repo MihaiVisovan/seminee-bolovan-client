@@ -1,10 +1,11 @@
 <template>
-  <div :class="containerClass" v-if="showMenu">
-    <ul :class="categoriesClass">
+  <div class="menu" v-if="showMenu">
+    <ul>
       <li
-        :class="categoryClass"
+        class="menu__category"
         @click="renderProducts(category.id), setShowMenu(false)"
-        v-for="category in categories"
+        v-for="(category, index) in categories"
+        :key="index"
       >
         {{ category.longTitle }}
       </li>
@@ -18,19 +19,8 @@ import { mapState, mapMutations } from 'vuex';
 
 export default {
   name: 'Menu',
-  data() {
-    return {
-      containerClass: 'menu',
-    };
-  },
   computed: {
     ...mapState(['categories', 'showMenu']),
-    categoriesClass() {
-      return `${this.containerClass}__categories`;
-    },
-    categoryClass() {
-      return `${this.categoriesClass}__category`;
-    },
   },
   methods: {
     ...mapMutations(['setShowMenu']),
@@ -55,32 +45,30 @@ export default {
     display: none;
   }
 
-  &__categories {
-    &__category {
-      height: 40px;
-      padding-bottom: 3px;
-      border-bottom-width: 1px;
-      border-bottom-style: solid;
-      // the following 6 lines are needed for iOS devices
-      // so only the bottom border will have linear-gradient
-      // because transparent property doesn't work
-      border-right-width: 0px;
-      border-right-style: solid;
-      border-left-width: 0px;
-      border-left-style: solid;
-      border-top-width: 0px;
-      border-top-style: solid;
-      border-image: linear-gradient(to left, #e8c547 30%, #c20114 100%);
-      border-image-slice: 1;
-      display: flex;
-      justify-content: flex-start;
-      align-items: flex-end;
-      font-weight: bold;
-      font-size: $font-small;
-      text-transform: uppercase;
-      letter-spacing: 0.3px;
-      cursor: pointer;
-    }
+  &__category {
+    height: 40px;
+    padding-bottom: 3px;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    // the following 6 lines are needed for iOS devices
+    // so only the bottom border will have linear-gradient
+    // because transparent property doesn't work
+    border-right-width: 0px;
+    border-right-style: solid;
+    border-left-width: 0px;
+    border-left-style: solid;
+    border-top-width: 0px;
+    border-top-style: solid;
+    border-image: linear-gradient(to left, #e8c547 30%, #c20114 100%);
+    border-image-slice: 1;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    font-weight: bold;
+    font-size: $font-small;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    cursor: pointer;
   }
 }
 </style>

@@ -1,15 +1,10 @@
 <template>
-  <div :class="containerClass">CART</div>
+  <div class="cart">CART</div>
 </template>
 
 <script>
 export default {
   name: 'Cart',
-  data() {
-    return {
-      containerClass: 'cart',
-    };
-  },
 };
 </script>
 

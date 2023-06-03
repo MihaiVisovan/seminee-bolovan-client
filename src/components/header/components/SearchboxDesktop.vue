@@ -1,7 +1,7 @@
 <template>
-  <div :class="containerClass">
+  <div class="searchbox_desktop">
     <input type="text" placeholder="Ce cauți astăzi?" />
-    <MagnifyingGlassIcon :class="searchIconClass" />
+    <MagnifyingGlassIcon class="searchbox_desktop__icon" />
   </div>
 </template>
 
@@ -12,16 +12,6 @@ export default {
   name: 'SearchboxDesktop',
   components: {
     MagnifyingGlassIcon,
-  },
-  data() {
-    return {
-      containerClass: 'searchbox_desktop',
-    };
-  },
-  computed: {
-    searchIconClass() {
-      return `${this.containerClass}__icon`;
-    },
   },
 };
 </script>

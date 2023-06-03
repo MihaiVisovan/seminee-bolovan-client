@@ -1,5 +1,5 @@
 <template>
-  <div :class="containerClass">
+  <div class="button">
     {{ text }}
   </div>
 </template>
@@ -7,11 +7,6 @@
 <script>
 export default {
   name: 'Button',
-  data() {
-    return {
-      containerClass: 'button',
-    };
-  },
   props: {
     text: String,
   },

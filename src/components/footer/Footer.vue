@@ -1,11 +1,11 @@
 <template>
-  <div :class="containerClass">
-    <ul :class="wrapperClass">
-      <li :class="contentClass" v-for="info in footerInfo">
-        <div :class="titleClass">{{ info.title }}</div>
-        <ul :class="detailsClass">
-          <li v-for="detail in info.details">
-            <span :class="detailsTitleClass"> {{ detail.key }} </span>
+  <div class="footer">
+    <ul class="footer__wrapper">
+      <li class="footer__content" v-for="(info, index) in footerInfo" :key="index">
+        <div class="footer__title">{{ info.title }}</div>
+        <ul class="footer__details">
+          <li v-for="(detail, index) in info.details" :key="index">
+            <span class="footer__details__title"> {{ detail.key }} </span>
             <span> {{ detail.value }} </span>
           </li>
         </ul>
@@ -18,28 +18,8 @@
 import { mapState } from 'vuex';
 export default {
   name: 'Footer',
-  data() {
-    return {
-      containerClass: 'footer',
-    };
-  },
   computed: {
     ...mapState(['footerInfo']),
-    wrapperClass() {
-      return `${this.containerClass}__wrapper`;
-    },
-    contentClass() {
-      return `${this.containerClass}__content`;
-    },
-    titleClass() {
-      return `${this.contentClass}__title`;
-    },
-    detailsClass() {
-      return `${this.contentClass}__details`;
-    },
-    detailsTitleClass() {
-      return `${this.detailsClass}__title`;
-    },
   },
 };
 </script>

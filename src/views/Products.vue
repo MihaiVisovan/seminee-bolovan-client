@@ -1,117 +1,52 @@
 <template>
-  <div :class="containerClass">
-    <div :class="categoryClass">
-      <div :class="categoryTitleClass">{{ category.longTitle }}</div>
+  <div class="products">
+    <div class="products__category">
+      <div>{{ category.longTitle }}</div>
     </div>
-    <div :class="contentClass">
-      <div :class="sortFilterWrapperClass">
+    <div class="products__content">
+      <div class="products__content__sort_filter">
         <Button text="FILTREAZĂ" @click="setShowFilters(true)" />
         <Button text="SORTEAZĂ" />
       </div>
-      <div :class="filtersClass" ref="filters">
+      <div class="products__content__filters" ref="filters">
         <FilterPanel />
       </div>
-      <div :class="gridClass">
-        <Card @click="goToProduct(product.id)" v-for="product in products">
-          <template v-slot:card-image>
-            <div :class="imageWrapperClass">
-              <img :class="imageClass" :src="product.image" /></div
-          ></template>
-          <template v-slot:card-details>
-            <div :class="detailsClass">
-              <div :class="titleClass">{{ product.title }}</div>
-              <div :class="priceWrapperClass">
-                <span> {{ product.price }} </span>
-                <span :class="priceCurrencyClass">
-                  {{ product.currency }}
-                </span>
-              </div>
-            </div>
-          </template>
-        </Card>
-      </div>
+      <ProductsGrid />
     </div>
   </div>
 </template>
 
 <script>
 import { mapState, mapMutations, mapActions } from 'vuex';
-import Card from '@/common/components/Card.vue';
 import Button from '@/common/components/Button.vue';
 import FilterPanel from '@/components/filter_panel/FilterPanel.vue';
+import ProductsGrid from '@/views/ProductsGrid.vue';
 
 export default {
   name: 'Products',
   components: {
-    Card,
     FilterPanel,
     Button,
-  },
-  data() {
-    return {
-      containerClass: 'products',
-    };
+    ProductsGrid,
   },
   created() {
     const categoryId = this.$route.params.categoryId;
     this.setCategory(categoryId);
   },
   watch: {
-    showFilters(newValue, oldValue) {
+    showFilters(newValue) {
       const body = document.getElementsByTagName('body')[0];
       if (newValue) {
-        this.$refs.filters.classList.add(this.filtersVisibleClass);
-        body.classList.add(this.bodyOverflowClass);
+        this.$refs.filters.classList.add('products__category__content__filters--visible');
+        body.classList.add('products__body');
       } else {
-        this.$refs.filters.classList.remove(this.filtersVisibleClass);
-        body.classList.remove(this.bodyOverflowClass);
+        this.$refs.filters.classList.remove('products__category__content__filters--visible');
+        body.classList.remove('products__body');
       }
     },
   },
   computed: {
-    ...mapState(['products', 'category', 'showFilters']),
-    categoryClass() {
-      return `${this.containerClass}__category`;
-    },
-    categoryLineClass() {
-      return `${this.categoryClass}__line`;
-    },
-    categoryTitleClass() {
-      return `${this.categoryClass}__title`;
-    },
-    contentClass() {
-      return `${this.containerClass}__content`;
-    },
-    sortFilterWrapperClass() {
-      return `${this.contentClass}__sort_filter`;
-    },
-    filtersClass() {
-      return `${this.contentClass}__filters`;
-    },
-    filtersVisibleClass() {
-      return `${this.filtersClass}__visible`;
-    },
-    bodyOverflowClass() {
-      return `${this.containerClass}__body`;
-    },
-    gridClass() {
-      return `${this.contentClass}__grid`;
-    },
-    imageWrapperClass() {
-      return `${this.gridClass}__image_wrapper`;
-    },
-    imageClass() {
-      return `${this.gridClass}__image`;
-    },
-    detailsClass() {
-      return `${this.gridClass}__details`;
-    },
-    titleClass() {
-      return `${this.detailsClass}__title`;
-    },
-    priceWrapperClass() {
-      return `${this.detailsClass}__price`;
-    },
+    ...mapState(['category', 'showFilters']),
     priceCurrencyClass() {
       return `${this.priceWrapperClass}__currency`;
     },
@@ -119,9 +54,6 @@ export default {
   methods: {
     ...mapMutations(['setShowFilters']),
     ...mapActions(['setCategory']),
-    goToProduct(productId) {
-      this.$router.push({ name: 'Product', params: { productId } });
-    },
   },
 };
 </script>
@@ -198,7 +130,7 @@ export default {
       background: white;
       display: none;
 
-      &__visible {
+      &--visible {
         display: block;
       }
 
@@ -209,51 +141,6 @@ export default {
         width: 300px;
         font-size: $font-medium;
         background: none;
-      }
-    }
-
-    &__grid {
-      flex-grow: 1;
-      flex-basis: 0;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin: auto;
-
-      @media only screen and (min-width: $mobile) {
-        justify-content: flex-start;
-      }
-
-      &__image_wrapper {
-        height: 200px;
-      }
-
-      &__image {
-        height: 100%;
-        width: 100%;
-        object-fit: contain;
-      }
-
-      &__details {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        letter-spacing: 0.5px;
-
-        &__title {
-          font-weight: 700;
-          font-size: $font-large;
-        }
-
-        &__price {
-          font-weight: 600;
-          font-size: $font-medium;
-          color: $color-darker-grey;
-
-          &__currency {
-            padding-left: 3px;
-          }
-        }
       }
     }
   }
