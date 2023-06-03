@@ -1,6 +1,6 @@
 <template>
   <div class="products_grid">
-    <Card @click="goToProduct(product.id)" v-for="(product, index) in products" :key="index">
+    <Card @click="goToProduct(product.id)" v-for="(product, index) in productsState" :key="index">
       <template v-slot:card-image>
         <div class="products_grid__image_wrapper">
           <img class="products_grid__image" :src="product?.images[0]" /></div
@@ -29,12 +29,66 @@ import Card from '@/common/components/Card.vue';
 export default {
   name: 'ProductsGrid',
   components: { Card },
+  data() {
+    return {
+      productsState: [],
+    };
+  },
+  created() {
+    this.resetProducts();
+  },
   computed: {
-    ...mapState(['products']),
+    ...mapState(['products', 'filters']),
+    filterPairs() {
+      const filterPairs = this.filters
+        .map(filter => {
+          // filter the selected options and grab their ids
+          const optionIds = filter.options
+            .filter(option => option.selected)
+            .map(option => option.id);
+
+          const filterPair = {
+            id: filter.id,
+            options: optionIds,
+          };
+
+          return filterPair;
+        })
+        .filter(filter => filter.options.length);
+      return filterPairs;
+    },
+  },
+  watch: {
+    filterPairs(newVal) {
+      if (newVal.length >= 1) {
+        this.filterProducts(newVal);
+      } else {
+        this.resetProducts();
+      }
+    },
   },
   methods: {
     goToProduct(productId) {
       this.$router.push({ name: 'Product', params: { productId } });
+    },
+    filterProducts(newVal) {
+      this.productsState = this.products.filter(product => {
+        let meetsFilterCondition = true;
+        newVal.forEach(filter => {
+          // grab the value of the filter id
+          const value = product[filter.id];
+
+          // if the product value is not included in any of the selected
+          // filters, don't show it
+          if (!filter.options.includes(value)) {
+            meetsFilterCondition = false;
+          }
+        });
+        return meetsFilterCondition;
+      });
+    },
+    resetProducts() {
+      this.productsState = [...this.products];
     },
   },
 };
@@ -47,7 +101,7 @@ export default {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin: auto;
+  align-content: flex-start;
 
   @media only screen and (min-width: $mobile) {
     justify-content: flex-start;

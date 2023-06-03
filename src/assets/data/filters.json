@@ -5,52 +5,52 @@
     "expanded": true,
     "options": [{
       "name": 10,
-      "id": 0,
+      "id": 10,
       "selected": false
     },
     {
       "name": 15,
-      "id": 1,
+      "id": 15,
       "selected": false
     },
     {
       "name": 3,
-      "id": 2,
-      "selected": false
-    },
-    {
-      "name": 9,
       "id": 3,
       "selected": false
     },
     {
+      "name": 9,
+      "id": 9,
+      "selected": false
+    },
+    {
       "name": 5,
-      "id": 4,
+      "id": 5,
       "selected": false
     },
     {
       "name": 4,
-      "id": 5,
+      "id": 4,
       "selected": false
     }]
   },
   {
-    "id": "tip-sticlă",
+    "id": "tip-sticla",
     "name": "Tip sticlă",
     "expanded": true,
     "options": [{
       "name": "Standard",
-      "id": 0,
+      "id": "standard",
       "selected": false
     },
     {
       "name": "Sticlă dreapta",
-      "id": 1,
+      "id": "dreapta",
       "selected": false
     },
     {
       "name": "Sticlă stânga",
-      "id": 2,
+      "id": "stanga",
       "selected": false
     }]
   },
@@ -60,7 +60,7 @@
     "expanded": true,
     "options": [{
       "name": "Verticală",
-      "id": 0,
+      "id": "verticala",
       "selected": false
     }]
   },
@@ -70,72 +70,72 @@
     "expanded": true,
     "options": [{
       "name": "Fontă",
-      "id": 0,
+      "id": "fonta",
       "selected": false
     },
     {
       "name": "Oțel și șamotă",
-      "id": 1,
+      "id": "otel_si_samota",
       "selected": false
     }]
   },
   {
-    "id": "tip-fontă",
+    "id": "tip-fonta",
     "name": "Tip fontă",
     "expanded": true,
     "options": [{
       "name": "Standard",
-      "id": 0,
+      "id": "standard",
       "selected": false
     },
     {
       "name": "Fontă dreapta",
-      "id": 1,
+      "id": "fonta_dreapta",
       "selected": false
     },
     {
       "name": "Fontă stânga",
-      "id": 2,
+      "id": "fonta_stanga",
       "selected": false
     }]
   },
   {
-    "id": "tip-șemineu",
+    "id": "tip-semineu",
     "name": "Tip șemineu",
     "expanded": true,
     "options": [{
       "name": "Standard",
-      "id": 0,
+      "id": "standard",
       "selected": false
     },
     {
       "name": "Șemineu dreapta",
-      "id": 1,
+      "id": "dreapta",
       "selected": false
     },
     {
       "name": "Șemineu stânga",
-      "id": 2,
+      "id": "stanga",
       "selected": false
     }]
   },  
   {
-    "id": "tip-marmotă",
+    "id": "tip-marmota",
     "name": "Tip marmotă",
     "expanded": true,
     "options": [{
       "name": "Standard",
-      "id": 0,
+      "id": "standard",
       "selected": false
     },
     {
       "name": "Marmotă dreapta",
-      "id": 1,
+      "id": "dreapta",
       "selected": false
     },
     {
       "name": "Marmotă stânga",
-      "id": 2,
+      "id": "stanga",
       "selected": false
     }]
   }

@@ -152,6 +152,10 @@ export default {
 
     &__name {
       padding-left: 5px;
+
+      &:hover {
+        color: darkgrey;
+      }
     }
   }
 }

@@ -18,6 +18,8 @@
     "title": "Albero AL12 R.H-D",
     "price": 10532,
     "currency": "RON",
+    "putere": 15,
+    "tip-sticla": "standard",
     "id": "albero-al12-r.h-d"
   },
   {
@@ -36,6 +38,8 @@
     "title": "Albero AL15 R.H-D",
     "price": 10532,
     "currency": "RON",
+    "putere": 15,
+    "tip-sticla": "standard",
     "id": "albero-al15-r.h-d"
   },
   {
@@ -53,6 +57,8 @@
     "title": "Albero AL19 L.H-D",
     "price": 7300,
     "currency": "RON",
+    "putere": 10,
+    "tip-sticla": "standard",
     "id": "albero-al19-L.H-D"
   },
   {
@@ -71,6 +77,8 @@
     "title": "Albero AL13 R.H-D",
     "price": 7300,
     "currency": "RON",
+    "putere": 10,
+    "tip-sticla": "dreapta",
     "id": "albero-al13-r.h-d"
   },
   {
@@ -89,6 +97,8 @@
     "title": "Albero AL80 R.H-D",
     "price": 7300,
     "currency": "RON",
+    "putere": 10,
+    "tip-sticla": "dreapta",
     "id": "albero-al80-r.h-d"
   },
   {
@@ -107,6 +117,8 @@
     "title": "Albero AL81 R.H-D",
     "price": 10532,
     "currency": "RON",
+    "putere": 5,
+    "tip-sticla": "dreapta",
     "id": "albero-al81-r.h-d"
   },
   {
@@ -125,6 +137,8 @@
     "title": "Albero AL25 R.G-D",
     "price": 1032,
     "currency": "RON",
+    "putere": 5,
+    "tip-sticla": "dreapta",
     "id": "albero-al25-R.G-D"
   },
   {
@@ -143,6 +157,8 @@
     "title": "Marino AL33 R.H-D",
     "price": 10532,
     "currency": "RON",
+    "putere": 5,
+    "tip-sticla": "standard",
     "id": "marino-al33-r.h-d"
   },
   {
@@ -161,6 +177,8 @@
     "title": "Toro AL23 R.H-D",
     "price": 10532,
     "currency": "RON",
+    "putere": 5,
+    "tip-sticla": "standard",
     "id": "toro-al23-r.h-d"
   },
   {
@@ -179,6 +197,8 @@
     "title": "Tero AL35 R.H-D",
     "price": 10.532,
     "currency": "RON",
+    "putere": 5,
+    "tip-sticla": "stanga",
     "id": "tero-al35-r.h-d"
   },
   {
@@ -197,6 +217,8 @@
     "title": "Albero AL55 R.H-D",
     "price": 11500,
     "currency": "RON",
+    "putere": 10,
+    "tip-sticla": "stanga",
     "id": "albero-al55-r.h-d"
   },
   {
@@ -215,6 +237,8 @@
     "title": "Albero AL55 R.H-L",
     "price": 12532,
     "currency": "RON",
+    "putere": 10,
+    "tip-sticla": "stanga",
     "id": "albero-al55-r.h-l"
   },
   {
@@ -233,6 +257,8 @@
     "title": "Toro AL24 R.H-D",
     "price": 10532,
     "currency": "RON",
+    "putere": 4,
+    "tip-sticla": "stanga",
     "id": "toro-al24-r.h-d"
   },
   {
@@ -251,6 +277,8 @@
     "title": "Tero AL36 R.H-D",
     "price": 10.532,
     "currency": "RON",
+    "putere": 15,
+    "tip-sticla": "standard",
     "id": "tero-al36-r.h-d"
   },
   {
@@ -269,6 +297,8 @@
     "title": "Albero AL56 R.H-D",
     "price": 11500,
     "currency": "RON",
+    "putere": 15,
+    "tip-sticla": "standard",
     "id": "albero-al56-r.h-d"
   },
   {
@@ -287,6 +317,8 @@
     "title": "Albero AL58 R.H-L",
     "price": 12532,
     "currency": "RON",
+    "putere": 15,
+    "tip-sticla": "standard",
     "id": "albero-al58-r.h-l"
   }
 ]
