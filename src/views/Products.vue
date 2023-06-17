@@ -5,8 +5,12 @@
     </div>
     <div class="products__content">
       <div class="products__content__sort_filter">
-        <Button text="FILTREAZĂ" @click="setShowFilters(true)" />
-        <Button text="SORTEAZĂ" />
+        <div class="products__content__sort_filter__button">
+          <Button text="FILTREAZĂ" @click="setShowFilters(true)" />
+        </div>
+        <div class="products__content__sort_filter__button">
+          <Button text="SORTEAZĂ" />
+        </div>
       </div>
       <div class="products__content__filters" ref="filters">
         <FilterPanel />
@@ -20,7 +24,7 @@
 import { mapState, mapMutations, mapActions } from 'vuex';
 import Button from '@/common/components/Button.vue';
 import FilterPanel from '@/components/filter_panel/FilterPanel.vue';
-import ProductsGrid from '@/views/ProductsGrid.vue';
+import ProductsGrid from '@/components/products/ProductsGrid.vue';
 
 export default {
   name: 'Products',
@@ -111,6 +115,12 @@ export default {
       flex-direction: row;
       margin-top: 30px;
       margin-bottom: 10px;
+
+      &__button {
+        width: 100%;
+        margin: 0 15px;
+        height: 40px;
+      }
 
       @media only screen and (min-width: $laptop) {
         display: none;
