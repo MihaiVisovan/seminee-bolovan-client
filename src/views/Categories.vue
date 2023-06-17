@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import CategoriesGrid from '@/views/CategoriesGrid.vue';
+import CategoriesGrid from '@/components/categories/CategoriesGrid.vue';
 
 export default {
   name: 'Categories',

@@ -2,7 +2,7 @@
   <div class="categories_grid">
     <Card @click="renderProducts(category.id)" v-for="(category, index) in categories" :key="index">
       <template v-slot:card-image>
-        <div class="categories_grid__image_height">
+        <div class="categories_grid__image_wrapper">
           <img :src="category.image" class="categories_grid__image" />
         </div>
       </template>
@@ -46,7 +46,7 @@ export default {
     justify-content: flex-start;
   }
 
-  &__image_height {
+  &__image_wrapper {
     height: 200px;
   }
 

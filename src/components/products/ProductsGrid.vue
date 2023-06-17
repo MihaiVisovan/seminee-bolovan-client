@@ -3,8 +3,9 @@
     <Card @click="goToProduct(product.id)" v-for="(product, index) in productsState" :key="index">
       <template v-slot:card-image>
         <div class="products_grid__image_wrapper">
-          <img class="products_grid__image" :src="product?.images[0]" /></div
-      ></template>
+          <img class="products_grid__image" :src="product?.images[0]" />
+        </div>
+      </template>
       <template v-slot:card-details>
         <div class="products_grid__details">
           <div class="products_grid__details__title">
@@ -29,11 +30,9 @@ import Card from '@/common/components/Card.vue';
 export default {
   name: 'ProductsGrid',
   components: { Card },
-  data() {
-    return {
-      productsState: [],
-    };
-  },
+  data: () => ({
+    productsState: [],
+  }),
   created() {
     this.resetProducts();
   },
