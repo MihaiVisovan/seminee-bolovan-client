@@ -75,7 +75,8 @@ export default {
         let meetsFilterCondition = true;
         newVal.forEach(filter => {
           // grab the value of the filter id
-          const value = product[filter.id];
+
+          const value = product[filter.id].value;
 
           // if the product value is not included in any of the selected
           // filters, don't show it
