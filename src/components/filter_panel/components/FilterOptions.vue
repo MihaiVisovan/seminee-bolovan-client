@@ -106,6 +106,10 @@ export default {
     align-items: center;
     cursor: pointer;
 
+    &:hover {
+      color: darkgrey;
+    }
+
     &--selected {
       background: linear-gradient(to left, #e8c547 20%, #c20114 100%);
       background-clip: text;
@@ -147,10 +151,6 @@ export default {
 
     &__name {
       padding-left: 5px;
-
-      &:hover {
-        color: darkgrey;
-      }
     }
   }
 }
