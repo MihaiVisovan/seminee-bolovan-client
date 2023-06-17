@@ -75,7 +75,7 @@
     },
     {
       "name": "Oțel și șamotă",
-      "id": "otel_si_samota",
+      "id": "otel-si-samota",
       "selected": false
     }]
   },
@@ -90,12 +90,12 @@
     },
     {
       "name": "Fontă dreapta",
-      "id": "fonta_dreapta",
+      "id": "fonta-dreapta",
       "selected": false
     },
     {
       "name": "Fontă stânga",
-      "id": "fonta_stanga",
+      "id": "fonta-stanga",
       "selected": false
     }]
   },
