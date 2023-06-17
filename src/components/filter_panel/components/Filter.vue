@@ -25,11 +25,9 @@ export default {
     FilterIcon,
     FilterOptions,
   },
-  data() {
-    return {
-      showOptions: false,
-    };
-  },
+  data: () => ({
+    showOptions: false,
+  }),
   props: {
     filter: Object,
   },

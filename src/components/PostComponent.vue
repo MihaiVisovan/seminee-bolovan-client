@@ -21,12 +21,10 @@ import axios from 'axios';
 import postService from '../helpers/postService.js';
 export default {
   name: 'PostComponent',
-  data() {
-    return {
-      posts: [],
-      name: '',
-    };
-  },
+  data: () => ({
+    posts: [],
+    name: '',
+  }),
   async created() {
     this.posts = await postService.getPosts();
   },

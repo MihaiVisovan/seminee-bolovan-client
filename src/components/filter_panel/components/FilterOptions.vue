@@ -35,11 +35,6 @@ export default {
   components: {
     Checkbox,
   },
-  data() {
-    return {
-      containerClass: 'filter_options',
-    };
-  },
   props: {
     filter: Object,
   },
