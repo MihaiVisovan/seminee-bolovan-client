@@ -3,7 +3,7 @@
     "shortTitle": "Focare",
     "longTitle": "Focare șemineu",
     "image": "https://semineebolovan.ro/wp-content/uploads/2018/01/AL9R_H_anim_0.png",
-    "id": "focare-șemineu"
+    "id": "focare-semineu"
   },
   {
     "shortTitle": "Termocamine",
@@ -15,19 +15,19 @@
     "shortTitle": "Burlane",
     "longTitle": "Burlane din oțel",
     "image": "https://semineebolovan.ro/wp-content/uploads/2018/01/burlane2.png",
-    "id": "burlane-din-oțel"
+    "id": "burlane-din-otel"
   },
   {
     "shortTitle": "Bioșeminee",
     "longTitle": "Bioșeminee",
     "image": "https://semineebolovan.ro/wp-content/uploads/2018/01/grill_gall01_alpha.png",
-    "id": "bioșeminee"
+    "id": "bioseminee"
   },
   {
     "shortTitle": "Elemente distribuție",
     "longTitle": "Elemente distribuție aer",
     "image": "https://semineebolovan.ro/wp-content/uploads/2018/01/Distributie-aer-2.jpg",
-    "id": "elemente-distribuție-aer"
+    "id": "elemente-distributie-aer"
   },
   {
     "shortTitle": "Grile",
@@ -45,6 +45,6 @@
     "shortTitle": "Acumulatoare",
     "longTitle": "Acumulatoare de căldură",
     "image": "https://semineebolovan.ro/wp-content/uploads/2018/01/WCPW02_1.png",
-    "id": "acumulatoare-de-căldură"
+    "id": "acumulatoare-de-caldura"
   }
 ]
