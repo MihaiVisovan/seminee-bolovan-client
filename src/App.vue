@@ -3,7 +3,7 @@
     <Header />
     <Menu v-if="showMenu" />
     <Navbar />
-    <Fireplace />
+    <Fireplace v-if="$route.name !== 'Product'" />
     <router-view class="app__content"></router-view>
     <Footer />
   </div>
