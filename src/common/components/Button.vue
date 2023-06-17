@@ -24,9 +24,8 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 40px;
-  margin: 0 15px;
   width: 100%;
+  height: 100%;
   cursor: pointer;
   color: white;
   background: black;
