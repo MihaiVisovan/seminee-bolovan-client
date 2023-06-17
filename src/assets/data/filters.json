@@ -1,6 +1,6 @@
 [
   {
-    "id": "putere",
+    "id": "power",
     "name": "Putere",
     "expanded": true,
     "options": [{
@@ -35,7 +35,7 @@
     }]
   },
   {
-    "id": "tip-sticla",
+    "id": "glass",
     "name": "Tip sticlă",
     "expanded": true,
     "options": [{
@@ -55,7 +55,7 @@
     }]
   },
   {
-    "id": "tip-deschidere",
+    "id": "opening",
     "name": "Tip deschidere",
     "expanded": true,
     "options": [{
@@ -65,7 +65,7 @@
     }]
   },
   {
-    "id": "tip-material",
+    "id": "material",
     "name": "Tip material",
     "expanded": true,
     "options": [{
@@ -80,7 +80,7 @@
     }]
   },
   {
-    "id": "tip-fonta",
+    "id": "cast-iron",
     "name": "Tip fontă",
     "expanded": true,
     "options": [{
@@ -100,7 +100,7 @@
     }]
   },
   {
-    "id": "tip-semineu",
+    "id": "fireplace",
     "name": "Tip șemineu",
     "expanded": true,
     "options": [{
@@ -115,26 +115,6 @@
     },
     {
       "name": "Șemineu stânga",
-      "id": "stanga",
-      "selected": false
-    }]
-  },  
-  {
-    "id": "tip-marmota",
-    "name": "Tip marmotă",
-    "expanded": true,
-    "options": [{
-      "name": "Standard",
-      "id": "standard",
-      "selected": false
-    },
-    {
-      "name": "Marmotă dreapta",
-      "id": "dreapta",
-      "selected": false
-    },
-    {
-      "name": "Marmotă stânga",
       "id": "stanga",
       "selected": false
     }]
