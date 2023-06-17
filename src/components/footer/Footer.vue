@@ -2,10 +2,10 @@
   <div class="footer">
     <ul class="footer__wrapper">
       <li class="footer__content" v-for="(info, index) in footerInfo" :key="index">
-        <div class="footer__title">{{ info.title }}</div>
-        <ul class="footer__details">
+        <div class="footer__content__title">{{ info.title }}</div>
+        <ul class="footer__content__details">
           <li v-for="(detail, index) in info.details" :key="index">
-            <span class="footer__details__title"> {{ detail.key }} </span>
+            <span class="footer__content__details__title"> {{ detail.key }} </span>
             <span> {{ detail.value }} </span>
           </li>
         </ul>
@@ -28,7 +28,7 @@ export default {
 .footer {
   background: black;
   width: 100%;
-  padding: 20px;
+  padding: 30px;
 
   &__wrapper {
     display: flex;
