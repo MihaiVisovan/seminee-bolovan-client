@@ -28,6 +28,9 @@ export default createStore({
     setProduct(state, product) {
       state.product = { ...product };
     },
+    setProducts(state, products) {
+      state.products = [...products];
+    },
     setFilters(state, filters) {
       state.filters = filters;
     },
@@ -36,6 +39,7 @@ export default createStore({
     setCategory({ commit }, categoryId) {
       const category = categories.find(x => x.id === categoryId);
       commit('setCategory', category);
+      commit('setProducts', products.filter(product => product.category === categoryId));
     },
     setProduct({ commit }, productId) {
       const product = products.find(x => x.id === productId);

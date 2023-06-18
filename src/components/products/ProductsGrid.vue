@@ -65,6 +65,10 @@ export default {
         this.resetProducts();
       }
     },
+    products() {
+      this.resetProducts();
+      this.filterProducts(this.filterPairs);
+    },
   },
   methods: {
     goToProduct(productId) {
