@@ -54,16 +54,26 @@ export default {
   display: flex;
   flex-direction: column;
   letter-spacing: 0.5px;
-  font-size: $font-5xl;
+  font-size: $font-4xl;
+  padding: 0 30px;
+
+  @media only screen and (min-width: $tablet) {
+    padding: 0px;
+    font-size: $font-5xl;
+  }
 
   &__title {
     font-weight: 700;
   }
 
   &__price {
-    font-size: $font-4xl;
     font-weight: 600;
+    font-size: $font-2xl;
     color: $color-darker-grey;
+
+    @media only screen and (min-width: $tablet) {
+      font-size: $font-4xl;
+    }
 
     &__currency {
       padding-left: 10px;

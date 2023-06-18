@@ -56,13 +56,33 @@ export default {
   padding: 0 30px;
 
   &__image {
-    height: 450px;
-    width: 450px;
+    height: 250px;
+    width: 250px;
+
+    @media only screen and (min-width: $tablet) {
+      height: 350px;
+      width: 350px;
+    }
+
+    @media only screen and (min-width: $laptop) {
+      height: 450px;
+      width: 450px;
+    }
   }
 
   &__thumbnails {
-    width: 150px;
-    height: 150px;
+    width: 75px;
+    height: 75px;
+
+    @media only screen and (min-width: $tablet) {
+      width: 125px;
+      height: 125px;
+    }
+
+    @media only screen and (min-width: $laptop) {
+      width: 150px;
+      height: 150px;
+    }
   }
 }
 

@@ -32,7 +32,9 @@ export default {
 <style lang="scss" scoped>
 .product_benefits {
   width: 100%;
+  padding: 10px 0px;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: $font-small;
@@ -42,11 +44,24 @@ export default {
   font-weight: 200;
   box-shadow: 1px 2px 10px -3px grey;
 
+  @media only screen and (min-width: $tablet) {
+    flex-direction: row;
+    padding: 0;
+  }
+
   &__divider {
-    width: 25%;
+    width: 100%;
     margin: 0 30px;
+    padding: 10px 30px;
     justify-content: center;
-    text-align: center;
+    text-align: left;
+
+    @media only screen and (min-width: $tablet) {
+      padding: 20px 0px;
+      width: 25%;
+      text-align: center;
+    }
+
     &__title {
       color: black;
       font-weight: bold;

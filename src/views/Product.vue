@@ -50,12 +50,16 @@ export default {
 
   &__section {
     display: flex;
+    flex-direction: column;
+
+    @media only screen and (min-width: $tablet) {
+      flex-direction: row;
+    }
+
     &__one {
-      height: 700px;
     }
 
     &__two {
-      height: 120px;
     }
 
     &__three {
@@ -63,14 +67,28 @@ export default {
   }
 
   &__divider {
-    width: 50%;
-    padding: 50px 40px 0px 40px;
+    width: 100%;
+
+    @media only screen and (min-width: $tablet) {
+      width: 50%;
+    }
+
+    @media only screen and (min-width: $laptop) {
+      padding-top: 50px;
+    }
 
     &__gallery {
+      padding: 30px 0;
       background-color: #f2f2f2;
     }
 
     &__product_info {
+      padding: 30px 0;
+
+      @media only screen and (min-width: $tablet) {
+        padding: 30px;
+      }
+
       box-shadow: -5px 0px 8px -7px grey;
     }
   }
