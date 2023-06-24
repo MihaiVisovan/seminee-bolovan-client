@@ -11,7 +11,7 @@
       "https://semineebolovan.ro/wp-content/uploads/2017/11/AL_AQ68_S_anim_6.png",
       "https://semineebolovan.ro/wp-content/uploads/2017/11/AL_AQ68_S_anim_7.png"
     ],
-    "title": "Albero AL12 R.H-D",
+    "title": "Albero AL12 P.H-D",
     "price": 10532,
     "currency": "RON",
     "power": {
@@ -44,7 +44,7 @@
         "description": "Focarul este confectionat dein table de otel cu o grosime de 3mm"
       }
     ],
-    "id": "albero-al12-r-h-d"
+    "id": "albero-al12-p-h-d"
   },
   {
     "category": "burlane-din-otel",
@@ -91,7 +91,7 @@
     "images": [
       "https://semineebolovan.ro/wp-content/uploads/2017/11/cot-2mm-45.jpg"
     ],
-    "title": "COT OTEL 2MM FI 130/45 REGLABIL",
+    "title": "COT OTEL 2MM FI 140/45 REGLABIL",
     "price": 10532,
     "currency": "RON",
     "power": {
@@ -124,14 +124,14 @@
         "description": "Focarul este confectionat dein table de otel cu o grosime de 3mm"
       }
     ],
-    "id": "COT-OTEL-2MM-FI-130/45-REGLABIL"
+    "id": "COT-OTEL-2MM-FI-140/45-REGLABIL"
   },  
   {
     "category": "burlane-din-otel",
     "images": [
       "https://semineebolovan.ro/wp-content/uploads/2017/11/cot-2mm-45.jpg"
     ],
-    "title": "COT OTEL 2MM FI 130/45 REGLABIL",
+    "title": "COT OTEL 2MM FI 150/45 REGLABIL",
     "price": 10532,
     "currency": "RON",
     "power": {
@@ -164,7 +164,7 @@
         "description": "Focarul este confectionat dein table de otel cu o grosime de 3mm"
       }
     ],
-    "id": "COT-OTEL-2MM-FI-130/45-REGLABIL"
+    "id": "COT-OTEL-2MM-FI-150/45-REGLABIL"
   },  
   {
     "category": "termocamine",
@@ -178,7 +178,7 @@
       "https://semineebolovan.ro/wp-content/uploads/2017/11/AL_AQ68_S_anim_6.png",
       "https://semineebolovan.ro/wp-content/uploads/2017/11/AL_AQ68_S_anim_7.png"
     ],
-    "title": "Albero AL12 R.H-D",
+    "title": "Albero AL12 L.H-D",
     "price": 10532,
     "currency": "RON",
     "power": {
@@ -211,7 +211,7 @@
         "description": "Focarul este confectionat dein table de otel cu o grosime de 3mm"
       }
     ],
-    "id": "albero-al12-r-h-d"
+    "id": "albero-al12-l-h-d"
   },  
   {
     "category": "bioseminee",
@@ -304,7 +304,7 @@
       "https://semineebolovan.ro/wp-content/uploads/2018/02/kanalowy-filtr-okragly-ocynkowany-1.jpg",
       "https://semineebolovan.ro/wp-content/uploads/2018/02/kanalowy-filtr-okragly-ocynkowany-2.jpg"
     ],
-    "title": "Filtru Galvanizat FI 100",
+    "title": "Filtru Galvanizat FI 200",
     "price": 10532,
     "currency": "RON",
     "power": {
@@ -337,7 +337,7 @@
         "description": "Focarul este confectionat dein table de otel cu o grosime de 3mm"
       }
     ],
-    "id": "filtru-galvanizat-fi-100"
+    "id": "filtru-galvanizat-fi-200"
   },  
   {
     "category": "termocamine",
@@ -351,7 +351,7 @@
       "https://semineebolovan.ro/wp-content/uploads/2017/11/AL_AQ68_S_anim_6.png",
       "https://semineebolovan.ro/wp-content/uploads/2017/11/AL_AQ68_S_anim_7.png"
     ],
-    "title": "Albero AL12 R.H-D",
+    "title": "Albero AL12 S.H-D",
     "price": 10532,
     "currency": "RON",
     "power": {
@@ -384,7 +384,7 @@
         "description": "Focarul este confectionat dein table de otel cu o grosime de 3mm"
       }
     ],
-    "id": "albero-al12-r-h-d"
+    "id": "albero-al12-s-h-d"
   },  
   {
     "category": "grile-aer",
@@ -530,7 +530,7 @@
       "https://semineebolovan.ro/wp-content/uploads/2018/02/kanalowy-filtr-okragly-ocynkowany-1.jpg",
       "https://semineebolovan.ro/wp-content/uploads/2018/02/kanalowy-filtr-okragly-ocynkowany-2.jpg"
     ],
-    "title": "Filtru Galvanizat FI 100",
+    "title": "Filtru Galvanizat FI 300",
     "price": 10532,
     "currency": "RON",
     "power": {
@@ -563,7 +563,7 @@
         "description": "Focarul este confectionat dein table de otel cu o grosime de 3mm"
       }
     ],
-    "id": "filtru-galvanizat-fi-100"
+    "id": "filtru-galvanizat-fi-300"
   },  
   {
     "category": "termocamine",
@@ -577,7 +577,7 @@
       "https://semineebolovan.ro/wp-content/uploads/2017/11/AL_AQ68_S_anim_6.png",
       "https://semineebolovan.ro/wp-content/uploads/2017/11/AL_AQ68_S_anim_7.png"
     ],
-    "title": "Albero AL12 R.H-D",
+    "title": "Albero AL12 K.H-D",
     "price": 10532,
     "currency": "RON",
     "power": {
@@ -610,6 +610,6 @@
         "description": "Focarul este confectionat dein table de otel cu o grosime de 3mm"
       }
     ],
-    "id": "albero-al12-r-h-d"
+    "id": "albero-al12-k-h-d"
   }
 ]
