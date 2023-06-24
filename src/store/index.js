@@ -10,6 +10,7 @@ export default createStore({
     showFilters: false,
     categories,
     products,
+    initialProducts: [...products],
     filters,
     footerInfo,
     category: {},
