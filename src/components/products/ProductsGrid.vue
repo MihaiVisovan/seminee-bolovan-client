@@ -1,6 +1,6 @@
 <template>
   <div class="products_grid">
-    <Card @click="goToProduct(product.id)" v-for="(product, index) in productsState" :key="index">
+    <Card @click="goToProduct(product)" v-for="(product, index) in productsState" :key="index">
       <template v-slot:card-image>
         <div class="products_grid__image_wrapper">
           <img class="products_grid__image" :src="product?.images[0]" />
@@ -71,8 +71,10 @@ export default {
     },
   },
   methods: {
-    goToProduct(productId) {
-      this.$router.push({ name: 'Product', params: { productId } });
+    goToProduct(product) {
+      const categoryId = product.category;
+      const productId = product.id;
+      this.$router.push({ name: 'Product', params: { productId, categoryId } });
     },
     filterProducts(newVal) {
       this.productsState = this.products.filter(product => {
